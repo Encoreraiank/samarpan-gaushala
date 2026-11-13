@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Samarpan Gaushala | A Sacred Haven of Compassion & Commitment to Gau Seva</title>
   <meta name="description" content="Established in 2009 by Pujya Shri Sanjiv Krishna Thakur Ji in Govardhan, Mathura. Dedicated to shelter, nourishment and medical care for 600+ rescued cows. 12A & 80G Certified." />
 
@@ -37,6 +37,7 @@
               red: '#8b1e15',
               deepRed: '#54100b',
               maroon: '#3c0a07',
+              darkMaroon: '#2a0503',
               gold: '#cda234',
               goldLight: '#fcf6e6',
               cream: '#fffdf9',
@@ -87,27 +88,67 @@
       to { transform: translateX(-100%); }
     }
 
-    /* Sacred Theme Cards */
-    .vedic-card {
-      background: #ffffff;
-      border: 1px solid #ebdccb;
-      box-shadow: 0 4px 20px -2px rgba(100, 40, 10, 0.05);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Glowing Hero Badge Pulse Animation */
+    @keyframes hero-pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+      }
+      50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 20px 4px rgba(245, 158, 11, 0.2);
+      }
     }
-    .vedic-card:hover {
-      border-color: #c56b05;
-      box-shadow: 0 16px 36px -4px rgba(139, 30, 21, 0.12);
-      transform: translateY(-4px);
+    .animate-hero-callout {
+      animation: hero-pulse 3s infinite ease-in-out;
     }
 
-    /* Swiper Navigation Buttons */
+    /* Primary CTA Button Pulse Glow */
+    @keyframes btn-glow {
+      0%, 100% {
+        box-shadow: 0 0 15px rgba(234, 88, 12, 0.5), 0 4px 10px rgba(0,0,0,0.3);
+      }
+      50% {
+        box-shadow: 0 0 28px rgba(234, 88, 12, 0.8), 0 6px 16px rgba(0,0,0,0.4);
+      }
+    }
+    .animate-glow-btn {
+      animation: btn-glow 2.4s infinite ease-in-out;
+    }
+
+    /* Sacred Donation Glass Cards */
+    .donation-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .donation-card:hover {
+      border-color: #f59e0b;
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.25);
+    }
+
+    /* Pillars Real-Photo Card */
+    .pillar-card {
+      background: #ffffff;
+      border: 1px solid #ebdccb;
+      transition: all 0.3s ease;
+    }
+    .pillar-card:hover {
+      border-color: #c56b05;
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px -4px rgba(100, 30, 10, 0.1);
+    }
+
+    /* Swiper Navigation Custom Buttons */
     .swiper-button-next, .swiper-button-prev {
       background: #ffffff;
       color: #803c0b;
       width: 44px;
       height: 44px;
       border-radius: 9999px;
-      box-shadow: 0 4px 14px rgba(120, 50, 15, 0.15);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
       border: 1px solid #eedecb;
       transition: all 0.2s ease;
     }
@@ -121,62 +162,51 @@
       border-color: #9d4c06;
     }
     .swiper-pagination-bullet {
-      background: #d8c3ad;
-      opacity: 0.7;
+      background: #fbd38d;
+      opacity: 0.6;
       width: 8px;
       height: 8px;
       transition: all 0.3s;
     }
     .swiper-pagination-bullet-active {
-      background: #9d4c06;
-      width: 26px;
+      background: #f59e0b;
+      width: 28px;
       border-radius: 4px;
       opacity: 1;
     }
-
-    /* Animated Gold Shimmer */
-    .gold-shimmer {
-      background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
-    }
-
-    /* Stats Glow Box */
-    .stats-card {
-      background: linear-gradient(145deg, rgba(84, 16, 11, 0.95), rgba(60, 10, 7, 0.98));
-      box-shadow: inset 0 1px 1px rgba(255, 230, 150, 0.2);
-    }
   </style>
 </head>
-<body class="selection:bg-saffron-200 selection:text-vedic-deepRed">
+<body class="selection:bg-saffron-200 selection:text-vedic-deepRed overflow-x-hidden">
 
   <!-- ======================================================== -->
   <!-- 1. TOP STRIP: Infinite Smooth Scrolling Marquee (img1)    -->
   <!-- ======================================================== -->
-  <div class="bg-gradient-to-r from-vedic-maroon via-vedic-deepRed to-vedic-maroon text-amber-100 text-xs sm:text-sm py-2.5 border-b border-amber-500/20 overflow-hidden shadow-inner">
+  <div class="bg-gradient-to-r from-vedic-darkMaroon via-vedic-deepRed to-vedic-darkMaroon text-amber-100 text-xs sm:text-sm py-2.5 border-b border-amber-500/20 overflow-hidden shadow-inner">
     <div class="marquee-wrapper">
       
       <!-- Track 1 -->
       <div class="marquee-content items-center">
-        <span class="inline-flex items-center mx-6 font-hindi font-semibold text-amber-200 text-sm">
+        <span class="inline-flex items-center mx-6 font-hindi font-semibold text-amber-200 text-xs sm:text-sm">
           ॐ "यदि गाय खड़ी है विपत्ति में, क्या धरा है तुम्हारी सम्पत्ति में"
         </span>
         <span class="text-amber-400/50">•</span>
-        <span class="inline-flex items-center mx-6 font-medium text-stone-200">
+        <span class="inline-flex items-center mx-6 font-medium text-stone-200 text-xs sm:text-sm">
           <i class="fa-solid fa-location-dot text-amber-400 mr-2"></i> Samarpan Gaushala, Govardhan, Mathura (U.P.)
         </span>
         <span class="text-amber-400/50">•</span>
-        <span class="inline-flex items-center mx-6 font-medium text-stone-200">
+        <span class="inline-flex items-center mx-6 font-medium text-stone-200 text-xs sm:text-sm">
           <i class="fa-solid fa-phone text-amber-400 mr-2"></i> 8285009571, 8285009572
         </span>
         <span class="text-amber-400/50">•</span>
-        <span class="inline-flex items-center mx-6 font-medium text-stone-200">
+        <span class="inline-flex items-center mx-6 font-medium text-stone-200 text-xs sm:text-sm">
           <i class="fa-solid fa-envelope text-amber-400 mr-2"></i> Info@samarpangoshala.com
         </span>
         <span class="text-amber-400/50">•</span>
-        <span class="inline-flex items-center mx-6 font-semibold text-amber-300">
+        <span class="inline-flex items-center mx-6 font-semibold text-amber-300 text-xs sm:text-sm">
           <i class="fa-solid fa-certificate text-amber-400 mr-2"></i> 12A & 80G Certified • NITI Aayog Registered • Indian Trust Act, 1882
         </span>
         <span class="text-amber-400/50">•</span>
-        <span class="inline-flex items-center mx-6 font-medium text-stone-200">
+        <span class="inline-flex items-center mx-6 font-medium text-stone-200 text-xs sm:text-sm">
           <i class="fa-solid fa-heart text-amber-400 mr-2"></i> 600+ Rescued Gau Matas Sheltered with Love
         </span>
         <span class="text-amber-400/50">•</span>
@@ -184,27 +214,27 @@
 
       <!-- Track 2 (Duplicate for Seamless Infinite Loop) -->
       <div class="marquee-content items-center" aria-hidden="true">
-        <span class="inline-flex items-center mx-6 font-hindi font-semibold text-amber-200 text-sm">
+        <span class="inline-flex items-center mx-6 font-hindi font-semibold text-amber-200 text-xs sm:text-sm">
           ॐ "यदि गाय खड़ी है विपत्ति में, क्या धरा है तुम्हारी सम्पत्ति में"
         </span>
         <span class="text-amber-400/50">•</span>
-        <span class="inline-flex items-center mx-6 font-medium text-stone-200">
+        <span class="inline-flex items-center mx-6 font-medium text-stone-200 text-xs sm:text-sm">
           <i class="fa-solid fa-location-dot text-amber-400 mr-2"></i> Samarpan Gaushala, Govardhan, Mathura (U.P.)
         </span>
         <span class="text-amber-400/50">•</span>
-        <span class="inline-flex items-center mx-6 font-medium text-stone-200">
+        <span class="inline-flex items-center mx-6 font-medium text-stone-200 text-xs sm:text-sm">
           <i class="fa-solid fa-phone text-amber-400 mr-2"></i> 8285009571, 8285009572
         </span>
         <span class="text-amber-400/50">•</span>
-        <span class="inline-flex items-center mx-6 font-medium text-stone-200">
+        <span class="inline-flex items-center mx-6 font-medium text-stone-200 text-xs sm:text-sm">
           <i class="fa-solid fa-envelope text-amber-400 mr-2"></i> Info@samarpangoshala.com
         </span>
         <span class="text-amber-400/50">•</span>
-        <span class="inline-flex items-center mx-6 font-semibold text-amber-300">
+        <span class="inline-flex items-center mx-6 font-semibold text-amber-300 text-xs sm:text-sm">
           <i class="fa-solid fa-certificate text-amber-400 mr-2"></i> 12A & 80G Certified • NITI Aayog Registered • Indian Trust Act, 1882
         </span>
         <span class="text-amber-400/50">•</span>
-        <span class="inline-flex items-center mx-6 font-medium text-stone-200">
+        <span class="inline-flex items-center mx-6 font-medium text-stone-200 text-xs sm:text-sm">
           <i class="fa-solid fa-heart text-amber-400 mr-2"></i> 600+ Rescued Gau Matas Sheltered with Love
         </span>
         <span class="text-amber-400/50">•</span>
@@ -214,35 +244,35 @@
   </div>
 
   <!-- ======================================================== -->
-  <!-- 2. CLEAN HEADER: Sharper Logo + No cluttered links        -->
+  <!-- 2. CLEAN HEADER: Transparent Logo (Zero Black Corners)    -->
   <!-- ======================================================== -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-900/10 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         
-        <!-- Brand & Identity (Clean crisp logo without clipping) -->
+        <!-- Brand & Identity (Transparent Logo without black corners) -->
         <a href="#hero" class="flex items-center space-x-3 sm:space-x-4 group">
-          <img src="assets/logo.png" alt="Samarpan Gaushala Logo" class="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-sm group-hover:scale-105 transition duration-300" />
+          <img src="assets/logo.png" alt="Samarpan Gaushala Logo" class="w-13 h-13 sm:w-16 sm:h-16 h-14 w-14 object-contain group-hover:scale-105 transition duration-300" />
           <div>
             <div class="flex items-center space-x-2">
-              <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-vedic-deepRed font-sans">Samarpan Gaushala</span>
-              <span class="hidden md:inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100/80 text-saffron-800 border border-amber-300/40">Govardhan, Mathura</span>
+              <span class="text-lg sm:text-2xl font-extrabold tracking-tight text-vedic-deepRed font-sans">Samarpan Gaushala</span>
+              <span class="hidden md:inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-saffron-800 border border-amber-300/40">Govardhan, Mathura</span>
             </div>
-            <p class="text-xs text-stone-500 font-medium">A Sacred Haven of Compassion • Est. 2009</p>
+            <p class="text-[11px] sm:text-xs text-stone-500 font-medium">A Sacred Haven of Compassion • Est. 2009</p>
           </div>
         </a>
 
-        <!-- Right Side: Helpline + 80G Badge + Direct Donate CTA -->
-        <div class="flex items-center space-x-3 sm:space-x-6">
+        <!-- Right Side: Phone + 80G Badge + Direct Donate CTA -->
+        <div class="flex items-center space-x-2 sm:space-x-5">
           
           <div class="hidden sm:flex flex-col text-right">
-            <span class="text-[10px] font-bold text-stone-500 uppercase tracking-widest">Helpline & Seva</span>
-            <a href="tel:8285009571" class="text-sm font-bold text-stone-800 hover:text-saffron-700 transition">
+            <span class="text-[10px] font-bold text-stone-500 uppercase tracking-widest">Helpline</span>
+            <a href="tel:8285009571" class="text-xs sm:text-sm font-bold text-stone-800 hover:text-saffron-700 transition">
               <i class="fa-solid fa-phone text-saffron-600 mr-1 text-xs"></i> 8285009571
             </a>
           </div>
 
-          <a href="#donate-packages" class="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 rounded-full font-bold text-white text-xs sm:text-sm bg-gradient-to-r from-saffron-600 via-saffron-700 to-vedic-red hover:from-saffron-700 hover:to-vedic-deepRed shadow-md hover:shadow-lg transition duration-200">
+          <a href="#donate-packages" class="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 rounded-full font-bold text-white text-xs sm:text-sm bg-gradient-to-r from-saffron-600 via-saffron-700 to-vedic-red hover:from-saffron-700 hover:to-vedic-deepRed shadow-md hover:shadow-lg transition duration-200">
             <span>Donate Now</span>
             <i class="fa-solid fa-heart ml-2 text-rose-200 text-xs"></i>
           </a>
@@ -254,63 +284,64 @@
   </header>
 
   <!-- ======================================================== -->
-  <!-- 3. HERO SECTION: Sacred Haven & Refined Hero CTAs (img4)  -->
+  <!-- 3. HERO SECTION: Sacred Haven & Animated Hero Callout    -->
   <!-- ======================================================== -->
-  <section id="hero" class="relative min-h-[85vh] flex items-center justify-center text-white overflow-hidden bg-stone-900">
+  <section id="hero" class="relative min-h-[85vh] sm:min-h-[88vh] flex items-center justify-center text-white overflow-hidden bg-stone-900">
     <!-- Hero Background Image (key picture on top) -->
     <div class="absolute inset-0 z-0">
-      <img src="assets/hero-bg.jpeg" alt="Pujya Shri Sanjiv Krishna Thakur Ji with Gau Mata" class="w-full h-full object-cover object-center filter brightness-[0.90]" />
+      <img src="assets/hero-bg.jpeg" alt="Pujya Shri Sanjiv Krishna Thakur Ji with Gau Mata" class="w-full h-full object-cover object-center filter brightness-[0.88]" />
       <!-- Spiritual Dark & Amber Vignette Overlay -->
       <div class="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/75 to-stone-950/40"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-transparent to-stone-950/40"></div>
     </div>
 
     <!-- Hero Content -->
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-left">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-left">
       
       <div class="space-y-6">
         
         <!-- Sacred Badge (Replaced "Sanctuary" with "Sacred Haven") -->
-        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-200 text-xs sm:text-sm font-semibold backdrop-blur-md">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-200 text-xs sm:text-sm font-semibold backdrop-blur-md">
           <i class="fa-solid fa-hands-praying text-amber-400"></i>
           <span>A Sacred Haven of Compassion • Serving Gau Mata Since 2009</span>
         </div>
 
         <!-- Main Headline -->
         <div class="space-y-2">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight font-sans drop-shadow-md">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight font-sans drop-shadow-md">
             Samarpan Gaushala
           </h1>
-          <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-amber-300 drop-shadow">
+          <p class="text-xl sm:text-3xl lg:text-4xl font-bold text-amber-300 drop-shadow">
             A Sacred Haven of Compassion. A Commitment to Gau Seva.
           </p>
         </div>
 
         <!-- Exact client paragraph with 600+ cows -->
-        <div class="space-y-3 text-stone-200 text-base sm:text-lg leading-relaxed max-w-2xl font-normal drop-shadow">
+        <div class="space-y-3 text-stone-200 text-sm sm:text-lg leading-relaxed max-w-2xl font-normal drop-shadow">
           <p>
             Established in 2009 by <strong class="text-amber-200 font-semibold">Pujya Shri Sanjiv Krishna Thakur Ji</strong>, Samarpan Gaushala is dedicated to the care, protection and service of Gau Mata.
           </p>
-          <p class="text-stone-300 text-sm sm:text-base">
+          <p class="text-stone-300 text-xs sm:text-base">
             Providing shelter, nourishment and medical care to over <strong class="text-amber-300 font-bold">600+ cows</strong>, we strive to give every cow the dignity, safety and compassion it deserves.
           </p>
         </div>
 
-        <!-- Redesigned Hero Callout & Actions (Fixing img4 cleanly!) -->
-        <div class="space-y-4 pt-2">
+        <!-- Redesigned Animated Hero Callout & High-Converting CTA Buttons (Fixing img2 cleanly!) -->
+        <div class="pt-2 space-y-4">
           
-          <div class="flex items-center space-x-3 text-amber-200 text-base sm:text-lg font-bold tracking-wide">
-            <span class="h-px w-8 bg-amber-400"></span>
-            <span class="font-hindi text-amber-300">"Your Contribution Can Save a Life."</span>
-            <span class="h-px w-8 bg-amber-400"></span>
+          <!-- Animated Devotional Callout Badge -->
+          <div class="animate-hero-callout inline-flex items-center space-x-2.5 px-4 sm:px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-950/80 via-amber-900/60 to-amber-950/80 border border-amber-400/50 backdrop-blur-md text-amber-200 text-xs sm:text-sm font-semibold">
+            <i class="fa-solid fa-sparkles text-amber-400 text-sm"></i>
+            <span>"Your Contribution Can Save a Life." • आपका एक छोटा सा सहयोग किसी बेजुबान का जीवन बचा सकता है</span>
           </div>
 
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <a href="#donate-packages" class="px-8 py-3.5 rounded-full font-bold text-center text-base text-white bg-gradient-to-r from-saffron-600 via-saffron-500 to-amber-600 hover:from-saffron-700 hover:to-amber-700 shadow-xl shadow-saffron-950/60 transition duration-200 flex items-center justify-center space-x-2">
+          <!-- CTAs: Glowing Primary Button + Clean Secondary Glass Button -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1">
+            <a href="#donate-packages" class="animate-glow-btn px-8 py-3.5 rounded-full font-bold text-center text-sm sm:text-base text-white bg-gradient-to-r from-saffron-500 via-saffron-600 to-amber-600 hover:from-saffron-600 hover:to-amber-700 transition duration-200 flex items-center justify-center space-x-2">
               <i class="fa-solid fa-heart mr-1 text-rose-200"></i>
-              <span>DONATE NOW</span>
+              <span>DONATE NOW / अभी दान करें</span>
             </a>
-            <a href="#about" class="px-7 py-3.5 rounded-full font-semibold text-center text-base text-stone-200 bg-white/10 hover:bg-white/20 border border-white/25 backdrop-blur-md transition duration-200 flex items-center justify-center space-x-2">
+            <a href="#about" class="px-7 py-3.5 rounded-full font-semibold text-center text-sm sm:text-base text-stone-200 bg-white/10 hover:bg-white/20 border border-white/25 backdrop-blur-md transition duration-200 flex items-center justify-center space-x-2">
               <i class="fa-solid fa-compass mr-1 text-amber-300"></i>
               <span>EXPLORE OUR SEVA</span>
             </a>
@@ -319,16 +350,16 @@
         </div>
 
         <!-- Trust Badges -->
-        <div class="pt-4 flex flex-wrap items-center gap-6 text-xs text-stone-300 font-medium">
-          <div class="flex items-center space-x-2">
+        <div class="pt-2 flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-stone-300 font-medium">
+          <div class="flex items-center space-x-1.5">
             <i class="fa-solid fa-shield-halved text-amber-400"></i>
             <span>Verified Razorpay Integration</span>
           </div>
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center space-x-1.5">
             <i class="fa-solid fa-certificate text-amber-400"></i>
             <span>12A & 80G Tax Exemption</span>
           </div>
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center space-x-1.5">
             <i class="fa-solid fa-receipt text-amber-400"></i>
             <span>Instant Digital Receipt</span>
           </div>
@@ -342,42 +373,42 @@
   <!-- ======================================================== -->
   <!-- 4. ANIMATED STATS BAR (600+ Cows & Counter Animation)    -->
   <!-- ======================================================== -->
-  <section class="stats-card text-white py-10 px-4 border-b border-amber-500/20 relative overflow-hidden">
+  <section class="bg-gradient-to-r from-vedic-darkMaroon via-vedic-deepRed to-vedic-darkMaroon text-white py-10 px-4 border-b border-amber-500/20 relative overflow-hidden shadow-inner">
     <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center relative z-10">
       
       <!-- Counter 1: 600+ Cows -->
-      <div class="p-3">
-        <div class="flex items-center justify-center space-x-1">
+      <div class="p-2 sm:p-3">
+        <div class="flex items-center justify-center space-x-0.5">
           <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300 counter" data-target="600">600</span>
-          <span class="text-3xl sm:text-4xl font-extrabold text-amber-300">+</span>
+          <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300">+</span>
         </div>
         <p class="text-xs sm:text-sm font-semibold text-amber-100 mt-1">Sheltered & Rescued Cows</p>
         <p class="text-[11px] text-stone-400">सुरक्षित व पोषित गौ माता</p>
       </div>
 
       <!-- Counter 2: 15+ Years -->
-      <div class="p-3 border-l border-amber-500/20">
-        <div class="flex items-center justify-center space-x-1">
+      <div class="p-2 sm:p-3 border-l border-amber-500/20">
+        <div class="flex items-center justify-center space-x-0.5">
           <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300 counter" data-target="15">15</span>
-          <span class="text-3xl sm:text-4xl font-extrabold text-amber-300">+</span>
+          <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300">+</span>
         </div>
         <p class="text-xs sm:text-sm font-semibold text-amber-100 mt-1">Years of Dedicated Seva</p>
         <p class="text-[11px] text-stone-400">निरंतर सेवा (Since 2009)</p>
       </div>
 
       <!-- Counter 3: 100% -->
-      <div class="p-3 border-l-0 md:border-l border-amber-500/20">
-        <div class="flex items-center justify-center space-x-1">
+      <div class="p-2 sm:p-3 border-l-0 md:border-l border-amber-500/20">
+        <div class="flex items-center justify-center space-x-0.5">
           <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300 counter" data-target="100">100</span>
-          <span class="text-3xl sm:text-4xl font-extrabold text-amber-300">%</span>
+          <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300">%</span>
         </div>
         <p class="text-xs sm:text-sm font-semibold text-amber-100 mt-1">Fresh Fodder & Healthcare</p>
         <p class="text-[11px] text-stone-400">पौष्टिक आहार व चिकित्सा</p>
       </div>
 
       <!-- Counter 4: 24/7 -->
-      <div class="p-3 border-l border-amber-500/20">
-        <div class="flex items-center justify-center space-x-1">
+      <div class="p-2 sm:p-3 border-l border-amber-500/20">
+        <div class="flex items-center justify-center space-x-0.5">
           <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300">24/7</span>
         </div>
         <p class="text-xs sm:text-sm font-semibold text-amber-100 mt-1">Emergency & Veterinary Care</p>
@@ -387,22 +418,27 @@
     </div>
   </section>
 
-  <!-- ======================================================== -->
-  <!-- 5. SEVA OFFERINGS & CONTRIBUTIONS (Redesigned Sacred Cards)-->
-  <!-- ======================================================== -->
-  <section id="donate-packages" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-amber-50/50 via-stone-50 to-white">
-    <div class="max-w-7xl mx-auto">
+  <!-- ========================================================================= -->
+  <!-- 5. SEVA OFFERINGS & CONTRIBUTIONS (Core Attention Centerpiece - img3)     -->
+  <!-- Deep royal background + gold glowing cards to command 100% user focus     -->
+  <!-- ========================================================================= -->
+  <section id="donate-packages" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-stone-950 via-[#360906] to-stone-950 text-white relative overflow-hidden shadow-2xl">
+    
+    <!-- Background Divine Aura Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
       
-      <!-- Section Title -->
-      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-saffron-100 border border-saffron-300/50 text-saffron-800 text-xs sm:text-sm font-bold uppercase tracking-wider">
-          <i class="fa-solid fa-gift text-saffron-600"></i>
-          <span>Pavitra Gau Seva Sankalp • Seva Offerings</span>
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
+        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md">
+          <i class="fa-solid fa-gift text-amber-400"></i>
+          <span>Pavitra Gau Seva Sankalp • Choose Your Contribution</span>
         </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-vedic-deepRed tracking-tight font-sans">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight font-sans">
           Support Our Rescued Gau Matas
         </h2>
-        <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+        <p class="text-stone-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
           Every contribution directly finances fresh nutritious fodder, specialized medical care, and safe sheltered living for over 600 rescued cows.
         </p>
       </div>
@@ -414,90 +450,90 @@
 
             <!-- Card 1: ₹501 - Gau Seva Starter -->
             <div class="swiper-slide h-auto">
-              <div class="vedic-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-white relative">
+              <div class="donation-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between h-full relative">
                 <div>
-                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4">
-                    <span class="text-saffron-800 bg-saffron-50 border border-saffron-200 px-3 py-1 rounded-full font-bold">
+                  <div class="flex items-center justify-between text-xs text-stone-300 font-semibold mb-4">
+                    <span class="text-amber-300 bg-amber-400/20 border border-amber-400/40 px-3 py-1 rounded-full font-bold">
                       Daily Fodder
                     </span>
-                    <span class="text-stone-500 font-medium"><i class="fa-solid fa-cow text-saffron-600 mr-1"></i> 11 Cows</span>
+                    <span class="text-stone-300"><i class="fa-solid fa-cow text-amber-400 mr-1"></i> 11 Cows</span>
                   </div>
                   
                   <div class="mb-4">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-stone-900">₹501</div>
-                    <h3 class="text-lg font-bold text-vedic-deepRed mt-1">Gau Seva Starter</h3>
-                    <p class="text-xs text-saffron-700 font-semibold mt-1">One day fodder support for 11 rescued Gau Matas</p>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-amber-300">₹501</div>
+                    <h3 class="text-lg font-bold text-white mt-1">Gau Seva Starter</h3>
+                    <p class="text-xs text-amber-200/90 font-medium mt-1">One day fodder support for 11 rescued Gau Matas</p>
                   </div>
 
-                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-5">
+                  <p class="text-xs sm:text-sm text-stone-300 leading-relaxed mb-5">
                     Provides fresh green fodder, nutritious dry straw, and clean drinking water for 11 rescued cows for an entire day.
                   </p>
 
-                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-700 mb-6">
+                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-200 mb-6">
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>11 गायों के लिए एक दिन का हरा चारा व तूड़ी</span>
                     </li>
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>Clean drinking water & shed maintenance</span>
                     </li>
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>Instant 80G tax receipt on email/SMS</span>
                     </li>
                   </ul>
                 </div>
 
-                <a href="https://rzp.io/rzp/501support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-gradient-to-r from-saffron-600 via-saffron-700 to-amber-700 hover:from-saffron-700 hover:to-amber-800 transition duration-200 block shadow-md hover:shadow-lg">
+                <a href="https://rzp.io/rzp/501support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl font-bold text-center text-sm text-white bg-gradient-to-r from-saffron-500 to-amber-600 hover:from-saffron-600 hover:to-amber-700 transition duration-200 block shadow-lg">
                   Donate ₹501
                 </a>
               </div>
             </div>
 
-            <!-- Card 2: ₹1,101 - Gau Poshan Seva (Featured) -->
+            <!-- Card 2: ₹1,101 - Gau Poshan Seva (Featured Most Popular) -->
             <div class="swiper-slide h-auto">
-              <div class="vedic-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-gradient-to-b from-amber-50/50 to-white border-2 border-saffron-500 shadow-lg relative">
+              <div class="donation-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between h-full border-2 border-amber-400 bg-gradient-to-b from-amber-950/60 to-stone-950 relative shadow-2xl">
                 
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-saffron-600 to-vedic-red text-white text-[11px] font-extrabold uppercase tracking-widest px-4 py-0.5 rounded-full shadow-sm">
-                  Recommended
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 text-stone-950 text-[11px] font-black uppercase tracking-widest px-4 py-0.5 rounded-full shadow-md">
+                  ★ Most Recommended ★
                 </div>
 
                 <div>
-                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4 mt-2">
-                    <span class="text-saffron-900 bg-saffron-100 border border-saffron-300 px-3 py-1 rounded-full font-bold">
-                      Nutrition & Care
+                  <div class="flex items-center justify-between text-xs text-stone-300 font-semibold mb-4 mt-2">
+                    <span class="text-amber-200 bg-amber-400/30 border border-amber-400/50 px-3 py-1 rounded-full font-bold">
+                      Nutrition & Health
                     </span>
-                    <span class="text-saffron-800 font-semibold"><i class="fa-solid fa-cow text-saffron-600 mr-1"></i> 21 Cows</span>
+                    <span class="text-amber-300 font-semibold"><i class="fa-solid fa-cow mr-1"></i> 21 Cows</span>
                   </div>
                   
                   <div class="mb-4">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-stone-900">₹1,101</div>
-                    <h3 class="text-lg font-bold text-vedic-deepRed mt-1">Gau Poshan Seva</h3>
-                    <p class="text-xs text-saffron-700 font-semibold mt-1">Nutritious fodder + basic care for 21 Gau Matas</p>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-amber-300">₹1,101</div>
+                    <h3 class="text-lg font-bold text-white mt-1">Gau Poshan Seva</h3>
+                    <p class="text-xs text-amber-200 font-semibold mt-1">Nutritious fodder + basic care for 21 Gau Matas</p>
                   </div>
 
-                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-5">
+                  <p class="text-xs sm:text-sm text-stone-300 leading-relaxed mb-5">
                     Provides essential nutrition, protein-rich grain feed (Khali, Chokar), mineral supplements, and basic healthcare for 21 cows.
                   </p>
 
-                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-700 mb-6">
+                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-200 mb-6">
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>21 गायों हेतु पौष्टिक आहार (खल, चोकर, मिनरल्स)</span>
                     </li>
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>Basic healthcare & routine veterinary care</span>
                     </li>
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>80G tax exemption eligible</span>
                     </li>
                   </ul>
                 </div>
 
-                <a href="https://rzp.io/rzp/1101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-gradient-to-r from-saffron-600 via-saffron-500 to-amber-600 hover:from-saffron-700 hover:to-amber-700 transition duration-200 block shadow-md hover:shadow-lg">
+                <a href="https://rzp.io/rzp/1101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl font-extrabold text-center text-sm text-stone-950 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200 hover:from-amber-400 hover:to-amber-300 transition duration-200 block shadow-xl">
                   Donate ₹1,101
                 </a>
               </div>
@@ -505,42 +541,42 @@
 
             <!-- Card 3: ₹2,101 - Gau Raksha Seva -->
             <div class="swiper-slide h-auto">
-              <div class="vedic-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-white relative">
+              <div class="donation-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between h-full relative">
                 <div>
-                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4">
-                    <span class="text-rose-800 bg-rose-50 border border-rose-200 px-3 py-1 rounded-full font-bold">
-                      Medical Care
+                  <div class="flex items-center justify-between text-xs text-stone-300 font-semibold mb-4">
+                    <span class="text-rose-300 bg-rose-500/20 border border-rose-400/40 px-3 py-1 rounded-full font-bold">
+                      Medical Seva
                     </span>
-                    <span class="text-stone-500 font-medium"><i class="fa-solid fa-kit-medical text-rose-600 mr-1"></i> Sick & Injured</span>
+                    <span class="text-stone-300"><i class="fa-solid fa-kit-medical text-rose-400 mr-1"></i> Sick & Injured</span>
                   </div>
                   
                   <div class="mb-4">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-stone-900">₹2,101</div>
-                    <h3 class="text-lg font-bold text-vedic-deepRed mt-1">Gau Raksha Seva</h3>
-                    <p class="text-xs text-stone-600 font-medium mt-1">Medical care + shelter maintenance for sick cows</p>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-amber-300">₹2,101</div>
+                    <h3 class="text-lg font-bold text-white mt-1">Gau Raksha Seva</h3>
+                    <p class="text-xs text-stone-300 font-medium mt-1">Medical care + shelter maintenance for sick cows</p>
                   </div>
 
-                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-5">
+                  <p class="text-xs sm:text-sm text-stone-300 leading-relaxed mb-5">
                     Covers intensive medication, wound dressings, doctor visits, and weather-protected recovery shelter for injured and ailing cows.
                   </p>
 
-                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-700 mb-6">
+                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-200 mb-6">
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>वृद्ध व बीमार गौ माताओं के लिए दवाइयां व इंजेक्शन</span>
                     </li>
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>Dedicated veterinary doctor supervision</span>
                     </li>
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>Special infirmary shed maintenance</span>
                     </li>
                   </ul>
                 </div>
 
-                <a href="https://rzp.io/rzp/2101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-gradient-to-r from-saffron-600 via-saffron-700 to-amber-700 hover:from-saffron-700 hover:to-amber-800 transition duration-200 block shadow-md hover:shadow-lg">
+                <a href="https://rzp.io/rzp/2101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl font-bold text-center text-sm text-white bg-gradient-to-r from-saffron-500 to-amber-600 hover:from-saffron-600 hover:to-amber-700 transition duration-200 block shadow-lg">
                   Donate ₹2,101
                 </a>
               </div>
@@ -548,42 +584,42 @@
 
             <!-- Card 4: ₹3,101 - Gud Sawamani Sewa -->
             <div class="swiper-slide h-auto">
-              <div class="vedic-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-white relative">
+              <div class="donation-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between h-full relative">
                 <div>
-                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4">
-                    <span class="text-amber-900 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full font-bold">
+                  <div class="flex items-center justify-between text-xs text-stone-300 font-semibold mb-4">
+                    <span class="text-amber-300 bg-amber-400/20 border border-amber-400/40 px-3 py-1 rounded-full font-bold">
                       Special Feast
                     </span>
-                    <span class="text-stone-500 font-medium"><i class="fa-solid fa-bowl-food text-amber-600 mr-1"></i> All 600+ Cows</span>
+                    <span class="text-stone-300"><i class="fa-solid fa-bowl-food text-amber-400 mr-1"></i> All 600+ Cows</span>
                   </div>
                   
                   <div class="mb-4">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-stone-900">₹3,101</div>
-                    <h3 class="text-lg font-bold text-vedic-deepRed mt-1">Gud Sawamani Sewa</h3>
-                    <p class="text-xs text-stone-600 font-medium mt-1">Ek Din Ki Gud Sawamani Sewa Sabhi Gau Mataon ke liye</p>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-amber-300">₹3,101</div>
+                    <h3 class="text-lg font-bold text-white mt-1">Gud Sawamani Sewa</h3>
+                    <p class="text-xs text-stone-300 font-medium mt-1">Ek Din Ki Gud Sawamani Sewa Sabhi Gau Mataon ke liye</p>
                   </div>
 
-                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-5">
+                  <p class="text-xs sm:text-sm text-stone-300 leading-relaxed mb-5">
                     Sponsors 50 kg of pure jaggery (Gud) distributed as a sweet feast to all 600+ cows in the sanctuary on special family occasions.
                   </p>
 
-                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-700 mb-6">
+                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-200 mb-6">
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>50+ किग्रा शुद्ध गुड़ का सामूहिक महाभोग</span>
                     </li>
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>Dedicate on birthdays or wedding anniversaries</span>
                     </li>
                     <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
                       <span>Special prayers performed in donor's name</span>
                     </li>
                   </ul>
                 </div>
 
-                <a href="https://rzp.io/rzp/3101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-gradient-to-r from-saffron-600 via-saffron-700 to-amber-700 hover:from-saffron-700 hover:to-amber-800 transition duration-200 block shadow-md hover:shadow-lg">
+                <a href="https://rzp.io/rzp/3101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl font-bold text-center text-sm text-white bg-gradient-to-r from-saffron-500 to-amber-600 hover:from-saffron-600 hover:to-amber-700 transition duration-200 block shadow-lg">
                   Donate ₹3,101
                 </a>
               </div>
@@ -591,7 +627,7 @@
 
             <!-- Card 5: Custom / Gau Dattak Sewa (Adopt a Cow) -->
             <div class="swiper-slide h-auto">
-              <div class="vedic-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-gradient-to-b from-stone-900 via-stone-950 to-black text-white border-amber-500/40 relative">
+              <div class="donation-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between h-full border border-amber-400/50 relative">
                 <div>
                   <div class="flex items-center justify-between text-xs text-stone-300 font-semibold mb-4">
                     <span class="text-amber-300 bg-amber-400/20 border border-amber-400/30 px-3 py-1 rounded-full font-bold">
@@ -626,7 +662,7 @@
                   </ul>
                 </div>
 
-                <a href="https://rzp.io/rzp/adopt3months" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-stone-950 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200 hover:from-amber-400 hover:to-amber-300 font-extrabold transition duration-200 block shadow-md hover:shadow-lg">
+                <a href="https://rzp.io/rzp/adopt3months" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl font-extrabold text-center text-sm text-stone-950 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200 hover:from-amber-400 hover:to-amber-300 transition duration-200 block shadow-lg">
                   Adopt a Cow
                 </a>
               </div>
@@ -646,84 +682,40 @@
     </div>
   </section>
 
-  <!-- ======================================================== -->
-  <!-- 6. ABOUT SAMARPAN GAUSHALA (With Prominent Founder Card)  -->
-  <!-- ======================================================== -->
+  <!-- ========================================================================= -->
+  <!-- 6. ABOUT SAMARPAN GAUSHALA & FOUNDER (Clean, Harmonious & Dignified - img4)-->
+  <!-- ========================================================================= -->
   <section id="about" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-amber-900/10">
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto space-y-16">
       
-      <!-- Top Title -->
-      <div class="max-w-3xl mb-12 space-y-2">
-        <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-300/40">
-          About Samarpan Gaushala
-        </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-vedic-deepRed tracking-tight leading-tight">
-          A Journey of Compassion Since 2009
-        </h2>
-        <p class="text-stone-600 text-base sm:text-lg">
-          Dedicated to providing loving care, nourishment, shelter and medical protection to hundreds of cows in Govardhan, Mathura.
-        </p>
-      </div>
-
-      <!-- Main Layout Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+      <!-- Part 1: Samarpan Gaushala Campus & Story (Large Campus Photo as requested) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
-        <!-- Left: Prominent & Grand Founder Card -->
-        <div class="lg:col-span-5 flex flex-col justify-between bg-gradient-to-b from-stone-900 via-stone-950 to-stone-900 text-white p-7 sm:p-9 rounded-3xl border-2 border-amber-500/40 shadow-2xl relative overflow-hidden">
-          
-          <div class="space-y-6 relative z-10 text-center sm:text-left">
-            
-            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5">
-              <!-- Large Portrait of Thakur Ji -->
-              <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-amber-400 shadow-xl flex-shrink-0">
-                <img src="assets/sanjeev-krishna-thakur-ji.jpg" alt="Pujya Shri Sanjeev Krishna Thakur Ji" class="w-full h-full object-cover object-top" />
-              </div>
-              <div class="space-y-1">
-                <span class="inline-block px-3 py-1 rounded-full text-[11px] font-extrabold tracking-widest uppercase bg-amber-400/20 text-amber-300 border border-amber-400/40">
-                  Founder & Spiritual Guide
-                </span>
-                <h3 class="text-xl sm:text-2xl font-bold text-white font-hindi mt-1">
-                  पूज्य श्री संजीव कृष्ण ठाकुर जी
-                </h3>
-                <p class="text-xs text-amber-200/90 font-medium">
-                  Pujya Shri Sanjiv Krishna Thakur Ji
-                </p>
-              </div>
+        <!-- Large Campus Photo -->
+        <div class="lg:col-span-7">
+          <div class="rounded-3xl overflow-hidden shadow-xl border-2 border-amber-100 group relative">
+            <img src="assets/gaushala-aerial.jpeg" alt="Samarpan Gaushala Aerial Campus" class="w-full h-80 sm:h-[420px] object-cover object-center group-hover:scale-105 transition duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 text-white">
+              <span class="px-3 py-1 bg-saffron-600 rounded-full text-[11px] font-extrabold uppercase tracking-wider">Sanctuary Campus</span>
+              <p class="text-base sm:text-xl font-bold text-amber-200 mt-1">Samarpan Gaushala • Govardhan, Mathura</p>
+              <p class="text-xs sm:text-sm text-stone-300">Spacious hygienic sheds, organic green pasture, and 24/7 medical infirmary for 600+ cows.</p>
             </div>
-
-            <p class="text-sm text-stone-300 leading-relaxed font-normal">
-              Under whose divine guidance and inspiration, Samarpan Gaushala was established in 2009. His profound vision transforms gau seva into a living testament of selfless devotion and compassion.
-            </p>
-
-            <div class="p-4 rounded-xl bg-amber-950/60 border border-amber-500/30 text-amber-200 text-sm font-hindi italic leading-relaxed">
-              "गौ सेवा केवल धर्म नहीं, हमारी संस्कृति और मानवता का मूल आधार है। हर गौ माता के भीतर प्रभु का साक्षात् वास है।"
-            </div>
-
           </div>
-
-          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-amber-300 font-semibold">
-            <span>Serving Since 2009</span>
-            <span>Govardhan, Mathura (U.P.)</span>
-          </div>
-
         </div>
 
-        <!-- Right: Campus Aerial View + Verbatim Client Description -->
-        <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
-          
-          <!-- Aerial Campus Photo -->
-          <div class="rounded-3xl overflow-hidden shadow-lg border border-stone-200 group relative">
-            <img src="assets/gaushala-aerial.jpeg" alt="Samarpan Gaushala Campus" class="w-full h-64 sm:h-72 object-cover object-center group-hover:scale-105 transition duration-500" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
-            <div class="absolute bottom-4 left-4 right-4 text-white">
-              <span class="px-2.5 py-1 bg-saffron-600 rounded text-[10px] font-extrabold uppercase tracking-wider">Campus View</span>
-              <p class="text-sm sm:text-base font-bold text-amber-200 mt-1">Vast & Peaceful Gaushala Campus in Govardhan</p>
-              <p class="text-xs text-stone-300">Spacious sheds, green grazing grounds, and 24/7 medical infirmary for 600+ cows.</p>
-            </div>
+        <!-- Story & Mission Details -->
+        <div class="lg:col-span-5 space-y-5">
+          <div class="space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-300/40">
+              About Samarpan Gaushala
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-vedic-deepRed tracking-tight leading-tight">
+              A Journey of Compassion Since 2009
+            </h2>
           </div>
 
-          <!-- Verbatim Client Text -->
-          <div class="space-y-3.5 text-stone-700 text-sm sm:text-base leading-relaxed bg-amber-50/40 p-6 rounded-2xl border border-amber-200/60">
+          <div class="space-y-3.5 text-stone-700 text-sm sm:text-base leading-relaxed">
             <p>
               <strong>Samarpan Gaushala</strong> was established in 2009 under the guidance and inspiration of <strong>Pujya Shri Sanjiv Krishna Thakur Ji</strong> with a vision to serve and protect Gau Mata.
             </p>
@@ -733,41 +725,82 @@
             <p>
               Today, Samarpan Gaushala provides care to <strong class="text-vedic-deepRed font-bold">over 600 cows</strong>, including abandoned, helpless and injured animals.
             </p>
-            <div class="border-l-4 border-saffron-600 pl-4 py-1 text-stone-900 font-medium italic">
+            <div class="border-l-4 border-saffron-600 pl-4 py-2 bg-amber-50/60 rounded-r-xl text-stone-900 font-medium italic">
               "Our work is guided by one simple belief: every life deserves compassion, protection and dignity. For us, Gau Seva is not merely an act of charity. It is a lifelong commitment to selfless service."
             </div>
           </div>
 
-          <!-- Quick Trust Points -->
-          <div class="grid grid-cols-2 gap-3 text-xs sm:text-sm font-semibold text-stone-800">
+          <!-- Trust Badges -->
+          <div class="grid grid-cols-2 gap-3 pt-2 text-xs sm:text-sm font-semibold text-stone-800">
             <div class="flex items-center space-x-2">
               <i class="fa-solid fa-check text-saffron-600"></i>
-              <span>12A & 80G Tax Exemption Certified</span>
+              <span>12A & 80G Tax Exemption</span>
             </div>
             <div class="flex items-center space-x-2">
               <i class="fa-solid fa-check text-saffron-600"></i>
-              <span>Registered with NITI Aayog</span>
+              <span>NITI Aayog Registered</span>
             </div>
             <div class="flex items-center space-x-2">
               <i class="fa-solid fa-check text-saffron-600"></i>
-              <span>Full Veterinary Team & Medical Care</span>
+              <span>Dedicated Vet Team</span>
             </div>
             <div class="flex items-center space-x-2">
               <i class="fa-solid fa-check text-saffron-600"></i>
-              <span>Registered under Indian Trust Act, 1882</span>
+              <span>Indian Trust Act, 1882</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Part 2: Dedicated Founder Showcase (Thakur Ji Big Photo & Grand Card) -->
+      <div class="rounded-3xl p-7 sm:p-10 bg-gradient-to-r from-amber-50 via-saffron-50/40 to-amber-50 border-2 border-amber-200/90 shadow-lg">
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+          
+          <!-- Big Clear Portrait of Thakur Ji -->
+          <div class="w-44 h-44 sm:w-56 sm:h-56 rounded-3xl overflow-hidden border-4 border-amber-400 shadow-xl flex-shrink-0">
+            <img src="assets/sanjeev-krishna-thakur-ji.jpg" alt="Pujya Shri Sanjeev Krishna Thakur Ji" class="w-full h-full object-cover object-top" />
+          </div>
+
+          <!-- Founder Tribute Text -->
+          <div class="space-y-4 flex-1 text-center md:text-left">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-saffron-200/80 text-saffron-900 border border-saffron-300">
+                प्रेरणा एवं संस्थापक • Sanctuary Founder & Spiritual Guide
+              </span>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-vedic-deepRed font-hindi mt-1.5">
+                पूज्य श्री संजीव कृष्ण ठाकुर जी
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-saffron-800">
+                Pujya Shri Sanjiv Krishna Thakur Ji
+              </p>
+            </div>
+
+            <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
+              Under whose divine guidance and inspiration, Samarpan Gaushala was established in 2009. His profound spiritual vision transforms Gau Seva from a simple charitable deed into a living sacrament of selfless service and love for all living beings.
+            </p>
+
+            <div class="bg-white/90 p-5 rounded-2xl border border-amber-300/60 shadow-sm text-stone-900 font-hindi text-base sm:text-lg italic leading-relaxed">
+              <i class="fa-solid fa-quote-left text-amber-500 mr-2"></i>
+              "गौ सेवा केवल धर्म नहीं, हमारी संस्कृति और मानवता का मूल आधार है। यदि गाय खड़ी है विपत्ति में, क्या धरा है तुम्हारी सम्पत्ति में।"
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-6 text-xs text-stone-600 font-semibold pt-1">
+              <span><i class="fa-solid fa-sun text-amber-600 mr-1.5"></i> Inspiring Devotees Worldwide</span>
+              <span><i class="fa-solid fa-landmark text-amber-600 mr-1.5"></i> Govardhan, Mathura Dham</span>
             </div>
           </div>
 
         </div>
-
       </div>
 
     </div>
   </section>
 
-  <!-- ======================================================== -->
-  <!-- 7. OUR SEVA. THEIR WELL-BEING. (Themed Cards with Slider) -->
-  <!-- ======================================================== -->
+  <!-- ========================================================================= -->
+  <!-- 7. OUR SEVA. THEIR WELL-BEING. (Authentic Photo-Backed Service Slider)     -->
+  <!-- Real photos of Gaushala activities - completely removes "AI slop" feel    -->
+  <!-- ========================================================================= -->
   <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-stone-50 border-t border-amber-900/10">
     <div class="max-w-7xl mx-auto">
       
@@ -775,10 +808,10 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
           <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-300/40">
-            Core Pillars
+            Our Seva. Their Well-being.
           </span>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-vedic-deepRed tracking-tight mt-2">
-            Our Seva. Their Well-being.
+            Five Dedicated Pillars of Daily Seva
           </h2>
           <p class="text-stone-600 text-sm sm:text-base mt-1">
             At Samarpan Gaushala, every day is an opportunity to serve with devotion and care.
@@ -796,109 +829,134 @@
         </div>
       </div>
 
-      <!-- Horizontal Slider Carousel for 5 Pillars (Harmonized with Vedic Warm Theme) -->
+      <!-- Horizontal Slider Carousel for 5 Pillars (With Real Photos from Gaushala) -->
       <div class="swiper pillarsSwiper pb-8">
         <div class="swiper-wrapper items-stretch">
           
-          <!-- Pillar 1 -->
+          <!-- Pillar 1: Nourishment & Daily Feeding -->
           <div class="swiper-slide h-auto">
-            <div class="vedic-card rounded-2xl p-7 flex flex-col justify-between h-full bg-white border border-amber-200/80">
-              <div class="space-y-4">
-                <div class="w-13 h-13 w-12 h-12 rounded-xl bg-amber-100 text-saffron-700 flex items-center justify-center text-xl shadow-sm">
-                  <i class="fa-solid fa-wheat-awn"></i>
+            <div class="pillar-card rounded-3xl overflow-hidden flex flex-col justify-between h-full bg-white">
+              <div>
+                <div class="h-48 overflow-hidden relative">
+                  <img src="assets/gallery/IMG-20240915-WA0121.jpg.jpeg" alt="Nourishment & Daily Feeding" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-sm text-amber-300 text-[11px] font-bold px-3 py-1 rounded-full">
+                    Pillar 01
+                  </span>
                 </div>
-                <h3 class="text-lg font-bold text-stone-900">
-                  1. Nourishment & Daily Feeding
-                </h3>
-                <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  Providing fresh fodder, nutritious food and clean drinking water to ensure the well-being of every cow.
-                </p>
+                <div class="p-6 space-y-2.5">
+                  <h3 class="text-lg font-bold text-stone-900">
+                    1. Nourishment & Daily Feeding
+                  </h3>
+                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                    Providing fresh fodder, nutritious food and clean drinking water to ensure the well-being of every cow.
+                  </p>
+                </div>
               </div>
-              <div class="mt-6 pt-4 border-t border-amber-100 text-xs font-bold text-saffron-800 flex items-center justify-between">
+              <div class="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-saffron-800">
                 <span>Daily fresh green nutrition</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Pillar 2 -->
+          <!-- Pillar 2: Medical Care & Treatment -->
           <div class="swiper-slide h-auto">
-            <div class="vedic-card rounded-2xl p-7 flex flex-col justify-between h-full bg-white border border-amber-200/80">
-              <div class="space-y-4">
-                <div class="w-13 h-13 w-12 h-12 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center text-xl shadow-sm">
-                  <i class="fa-solid fa-stethoscope"></i>
+            <div class="pillar-card rounded-3xl overflow-hidden flex flex-col justify-between h-full bg-white">
+              <div>
+                <div class="h-48 overflow-hidden relative">
+                  <img src="assets/gallery/IMG-20240915-WA0115.jpg.jpeg" alt="Medical Care & Treatment" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-sm text-rose-300 text-[11px] font-bold px-3 py-1 rounded-full">
+                    Pillar 02
+                  </span>
                 </div>
-                <h3 class="text-lg font-bold text-stone-900">
-                  2. Medical Care & Treatment
-                </h3>
-                <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  Ensuring medical attention, veterinary assistance and treatment for injured, sick and vulnerable cows.
-                </p>
+                <div class="p-6 space-y-2.5">
+                  <h3 class="text-lg font-bold text-stone-900">
+                    2. Medical Care & Treatment
+                  </h3>
+                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                    Ensuring medical attention, veterinary assistance and treatment for injured, sick and vulnerable cows.
+                  </p>
+                </div>
               </div>
-              <div class="mt-6 pt-4 border-t border-amber-100 text-xs font-bold text-rose-700 flex items-center justify-between">
+              <div class="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-rose-700">
                 <span>Dedicated veterinary attention</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Pillar 3 -->
+          <!-- Pillar 3: Shelter & Protection -->
           <div class="swiper-slide h-auto">
-            <div class="vedic-card rounded-2xl p-7 flex flex-col justify-between h-full bg-white border border-amber-200/80">
-              <div class="space-y-4">
-                <div class="w-13 h-13 w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl shadow-sm">
-                  <i class="fa-solid fa-shield-heart"></i>
+            <div class="pillar-card rounded-3xl overflow-hidden flex flex-col justify-between h-full bg-white">
+              <div>
+                <div class="h-48 overflow-hidden relative">
+                  <img src="assets/gallery/IMG-20240915-WA0125.jpg.jpeg" alt="Shelter & Protection" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-sm text-emerald-300 text-[11px] font-bold px-3 py-1 rounded-full">
+                    Pillar 03
+                  </span>
                 </div>
-                <h3 class="text-lg font-bold text-stone-900">
-                  3. Shelter & Protection
-                </h3>
-                <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  Providing a safe environment where abandoned and helpless cows can live with dignity and security.
-                </p>
+                <div class="p-6 space-y-2.5">
+                  <h3 class="text-lg font-bold text-stone-900">
+                    3. Shelter & Protection
+                  </h3>
+                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                    Providing a safe environment where abandoned and helpless cows can live with dignity and security.
+                  </p>
+                </div>
               </div>
-              <div class="mt-6 pt-4 border-t border-amber-100 text-xs font-bold text-emerald-700 flex items-center justify-between">
-                <span>Weatherproof clean sanctuary</span>
+              <div class="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-emerald-700">
+                <span>Weatherproof clean sheds</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Pillar 4 -->
+          <!-- Pillar 4: Rescue & Rehabilitation -->
           <div class="swiper-slide h-auto">
-            <div class="vedic-card rounded-2xl p-7 flex flex-col justify-between h-full bg-white border border-amber-200/80">
-              <div class="space-y-4">
-                <div class="w-13 h-13 w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center text-xl shadow-sm">
-                  <i class="fa-solid fa-truck-medical"></i>
+            <div class="pillar-card rounded-3xl overflow-hidden flex flex-col justify-between h-full bg-white">
+              <div>
+                <div class="h-48 overflow-hidden relative">
+                  <img src="assets/gallery/FB_IMG_1742362471831.jpg.jpeg" alt="Rescue & Rehabilitation" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-sm text-amber-300 text-[11px] font-bold px-3 py-1 rounded-full">
+                    Pillar 04
+                  </span>
                 </div>
-                <h3 class="text-lg font-bold text-stone-900">
-                  4. Rescue & Rehabilitation
-                </h3>
-                <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  Extending care and protection to cows that are abandoned, injured or in need of immediate assistance.
-                </p>
+                <div class="p-6 space-y-2.5">
+                  <h3 class="text-lg font-bold text-stone-900">
+                    4. Rescue & Rehabilitation
+                  </h3>
+                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                    Extending care and protection to cows that are abandoned, injured or in need of immediate assistance.
+                  </p>
+                </div>
               </div>
-              <div class="mt-6 pt-4 border-t border-amber-100 text-xs font-bold text-amber-800 flex items-center justify-between">
-                <span>Emergency road rescue</span>
+              <div class="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-amber-800">
+                <span>Emergency rescue response</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Pillar 5 -->
+          <!-- Pillar 5: Daily Gau Seva -->
           <div class="swiper-slide h-auto">
-            <div class="vedic-card rounded-2xl p-7 flex flex-col justify-between h-full bg-white border border-amber-200/80">
-              <div class="space-y-4">
-                <div class="w-13 h-13 w-12 h-12 rounded-xl bg-orange-100 text-orange-800 flex items-center justify-center text-xl shadow-sm">
-                  <i class="fa-solid fa-hands-praying"></i>
+            <div class="pillar-card rounded-3xl overflow-hidden flex flex-col justify-between h-full bg-white">
+              <div>
+                <div class="h-48 overflow-hidden relative">
+                  <img src="assets/gallery/IMG-20240915-WA0126.jpg.jpeg" alt="Daily Gau Seva" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-sm text-orange-300 text-[11px] font-bold px-3 py-1 rounded-full">
+                    Pillar 05
+                  </span>
                 </div>
-                <h3 class="text-lg font-bold text-stone-900">
-                  5. Daily Gau Seva
-                </h3>
-                <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  Maintaining the gaushala through regular feeding, cleaning, supervision and dedicated care.
-                </p>
+                <div class="p-6 space-y-2.5">
+                  <h3 class="text-lg font-bold text-stone-900">
+                    5. Daily Gau Seva
+                  </h3>
+                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                    Maintaining the gaushala through regular feeding, cleaning, supervision and dedicated care.
+                  </p>
+                </div>
               </div>
-              <div class="mt-6 pt-4 border-t border-amber-100 text-xs font-bold text-orange-800 flex items-center justify-between">
+              <div class="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-orange-800">
                 <span>Continuous selfless dedication</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
@@ -934,7 +992,7 @@
       <div class="space-y-8">
         
         <!-- Dignitary 1: Jagadguru Malookpeethadhishwar Pujya Shri Rajendra Das ji Maharaj -->
-        <div class="vedic-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
+        <div class="pillar-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
           <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-amber-400 flex-shrink-0 shadow-md">
             <img src="assets/affiliations/rajendra-das-ji.jpeg" alt="Jagadguru Malookpeethadhishwar Pujya Shri Rajendra Das ji Maharaj" class="w-full h-full object-cover object-top" />
           </div>
@@ -956,7 +1014,7 @@
         </div>
 
         <!-- Dignitary 2: Pujya Govind Dev Giri Ji Maharaj -->
-        <div class="vedic-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
+        <div class="pillar-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
           <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-amber-400 flex-shrink-0 shadow-md">
             <img src="assets/affiliations/govind-dev-giri-ji.jpeg" alt="Pujya Govind Dev Giri Ji Maharaj" class="w-full h-full object-cover object-top" />
           </div>
@@ -978,7 +1036,7 @@
         </div>
 
         <!-- Dignitary 3: Shri Vishnu Deo Sai Ji -->
-        <div class="vedic-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
+        <div class="pillar-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
           <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-amber-400 flex-shrink-0 shadow-md">
             <img src="assets/affiliations/vishnu-deo-sai.jpeg" alt="Shri Vishnu Deo Sai Ji" class="w-full h-full object-cover object-top" />
           </div>
@@ -1000,7 +1058,7 @@
         </div>
 
         <!-- Dignitary 4: Shri Manoj Tiwari Ji -->
-        <div class="vedic-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
+        <div class="pillar-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
           <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-amber-400 flex-shrink-0 shadow-md">
             <img src="assets/affiliations/manoj-tiwari.jpeg" alt="Shri Manoj Tiwari Ji" class="w-full h-full object-cover object-top" />
           </div>
@@ -1045,7 +1103,7 @@
       </div>
 
       <!-- Real Photos Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
         <div class="rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-stone-200 shadow-sm">
           <img src="assets/gallery/IMG-20240915-WA0121.jpg.jpeg" alt="Fodder Feeding at Gaushala" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
         </div>
@@ -1076,7 +1134,7 @@
   </section>
 
   <!-- ======================================================== -->
-  <!-- 10. REFINED FOOTER (Only Instagram & Facebook, Clean)    -->
+  <!-- 10. REFINED FOOTER (Instagram & Facebook Only, Clean)    -->
   <!-- ======================================================== -->
   <footer class="bg-stone-950 text-stone-300 pt-16 pb-12 border-t border-stone-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1171,13 +1229,13 @@
     </div>
   </footer>
 
-  <!-- MOBILE BOTTOM STICKY DONATE BAR -->
-  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-stone-950/95 backdrop-blur-md border-t border-stone-800 p-3 shadow-2xl flex items-center justify-between gap-3">
+  <!-- MOBILE BOTTOM STICKY DONATE BAR (Touch-friendly 1-tap donation) -->
+  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-stone-950/95 backdrop-blur-md border-t border-amber-500/30 p-3 shadow-2xl flex items-center justify-between gap-3">
     <div>
       <p class="text-xs text-white font-bold">Support Gau Mata</p>
-      <p class="text-[10px] text-amber-300">Starting from ₹501 • 80G Tax Exempt</p>
+      <p class="text-[10px] text-amber-300 font-medium">Starting from ₹501 • 80G Tax Exempt</p>
     </div>
-    <a href="#donate-packages" class="px-5 py-2.5 rounded-full font-bold text-xs text-white bg-gradient-to-r from-saffron-600 to-amber-600 shadow-md">
+    <a href="#donate-packages" class="px-5 py-2.5 rounded-full font-bold text-xs text-white bg-gradient-to-r from-saffron-500 to-amber-600 shadow-md">
       Donate Now
     </a>
   </div>
@@ -1261,7 +1319,7 @@
 
     // Intersection Observer to trigger counter animation once visible
     let animated = false;
-    const statsSection = document.querySelector('.stats-card');
+    const statsSection = document.querySelector('.counter');
     if (statsSection) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1270,8 +1328,8 @@
             animateCounters();
           }
         });
-      }, { threshold: 0.3 });
-      observer.observe(statsSection);
+      }, { threshold: 0.2 });
+      observer.observe(statsSection.parentElement.parentElement);
     }
   </script>
 
