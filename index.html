@@ -9,7 +9,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logo.png" />
 
-  <!-- Standard Clean Google Fonts: Plus Jakarta Sans for crisp modern typography, Noto Sans Devanagari for Hindi -->
+  <!-- Google Fonts: Plus Jakarta Sans for crisp typography, Noto Sans Devanagari for Hindi -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,6 +21,14 @@
       theme: {
         extend: {
           colors: {
+            cream: {
+              50: '#fdfbf7',
+              100: '#fbf6ee',
+              200: '#f7edde',
+              300: '#f1e2cc',
+              400: '#e7d0b3',
+              500: '#d9ba96',
+            },
             saffron: {
               50: '#fffbf2',
               100: '#fef3d8',
@@ -57,8 +65,8 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #faf8f5;
-      color: #27221d;
+      background-color: #fbf6ee; /* Rich warm Vedic cream */
+      color: #2b231c;
       overflow-x: hidden;
     }
 
@@ -82,28 +90,28 @@
       to { transform: translateX(-100%); }
     }
 
-    /* Clean Card Style (Natural, No AI Slop) */
-    .white-card {
-      background: #ffffff;
-      border: 1px solid #e7ded3;
-      box-shadow: 0 4px 18px -2px rgba(40, 25, 10, 0.05);
+    /* Warm Cream Cards with Gold-Sand Borders */
+    .cream-card {
+      background: #fffdf9;
+      border: 1px solid #e5d7c5;
+      box-shadow: 0 4px 18px -2px rgba(80, 45, 15, 0.05);
       transition: all 0.25s ease;
     }
-    .white-card:hover {
-      border-color: #d77006;
-      box-shadow: 0 12px 28px -4px rgba(40, 25, 10, 0.1);
+    .cream-card:hover {
+      border-color: #c56b05;
+      box-shadow: 0 12px 28px -4px rgba(139, 30, 21, 0.1);
       transform: translateY(-3px);
     }
 
     /* Swiper Navigation Custom Buttons */
     .swiper-button-next, .swiper-button-prev {
-      background: #ffffff;
+      background: #fffdf9;
       color: #75340f;
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 9999px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-      border: 1px solid #e7ded3;
+      box-shadow: 0 4px 12px rgba(80, 45, 15, 0.15);
+      border: 1px solid #dfcfbc;
       transition: all 0.2s ease;
     }
     .swiper-button-next:after, .swiper-button-prev:after {
@@ -116,7 +124,7 @@
       border-color: #b04e08;
     }
     .swiper-pagination-bullet {
-      background: #cbd5e1;
+      background: #d8c3ad;
       opacity: 0.8;
       width: 8px;
       height: 8px;
@@ -124,7 +132,7 @@
     }
     .swiper-pagination-bullet-active {
       background: #b04e08;
-      width: 24px;
+      width: 26px;
       border-radius: 4px;
     }
   </style>
@@ -197,9 +205,9 @@
   </div>
 
   <!-- ======================================================== -->
-  <!-- 2. CLEAN HEADER: Transparent Logo (Zero Black Corners)    -->
+  <!-- 2. WARM HEADER: Warm Cream Backdrop                      -->
   <!-- ======================================================== -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
+  <header class="sticky top-0 z-50 bg-[#fffdf9]/95 backdrop-blur-md border-b border-[#e8dac8] shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         
@@ -209,9 +217,9 @@
           <div>
             <div class="flex items-center space-x-2">
               <span class="text-lg sm:text-2xl font-extrabold tracking-tight text-primary-deepRed font-sans">Samarpan Gaushala</span>
-              <span class="hidden md:inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-saffron-800 border border-amber-300/40">Govardhan, Mathura</span>
+              <span class="hidden md:inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#fbf0df] text-saffron-800 border border-[#edd7bc]">Govardhan, Mathura</span>
             </div>
-            <p class="text-[11px] sm:text-xs text-stone-500 font-medium">A Sacred Haven of Compassion • Est. 2009</p>
+            <p class="text-[11px] sm:text-xs text-stone-600 font-medium">A Sacred Haven of Compassion • Est. 2009</p>
           </div>
         </a>
 
@@ -259,7 +267,7 @@
           <span>A Sacred Haven of Compassion • Serving Gau Mata Since 2009</span>
         </div>
 
-        <!-- Main Headline (Classic Clean Font) -->
+        <!-- Main Headline -->
         <div class="space-y-2">
           <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
             Samarpan Gaushala
@@ -325,7 +333,7 @@
       <div class="p-2 sm:p-3">
         <div class="flex items-center justify-center space-x-0.5">
           <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300 counter" data-target="600">600</span>
-          <span class="text-3xl sm:text-4xl font-extrabold text-amber-300">+</span>
+          <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300">+</span>
         </div>
         <p class="text-xs sm:text-sm font-semibold text-stone-200 mt-1">Sheltered & Rescued Cows</p>
         <p class="text-[11px] text-amber-200/80">संरक्षित व पोषित गौ माता</p>
@@ -335,7 +343,7 @@
       <div class="p-2 sm:p-3 border-l border-white/10">
         <div class="flex items-center justify-center space-x-0.5">
           <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300 counter" data-target="15">15</span>
-          <span class="text-3xl sm:text-4xl font-extrabold text-amber-300">+</span>
+          <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300">+</span>
         </div>
         <p class="text-xs sm:text-sm font-semibold text-stone-200 mt-1">Years of Dedicated Seva</p>
         <p class="text-[11px] text-amber-200/80">निरंतर सेवा (Since 2009)</p>
@@ -364,21 +372,21 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 5. SEVA OFFERINGS & CONTRIBUTIONS (Clean Natural Theme - img1 Fixed)       -->
-  <!-- Bright, clean, authentic, crisp cards on light cream background          -->
+  <!-- 5. SEVA OFFERINGS & CONTRIBUTIONS (Warm Off-White & Cream Palette - img1) -->
+  <!-- Rich warm cream theme, no clipped badges, beautiful balanced cards       -->
   <!-- ========================================================================= -->
-  <section id="donate-packages" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-stone-50 border-t border-stone-200">
+  <section id="donate-packages" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#f5ede2] border-t border-[#e2d2bf]">
     <div class="max-w-7xl mx-auto">
       
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
-        <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-300/40">
+        <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-[#fde9cb] px-4 py-1.5 rounded-full border border-[#f5d29d]">
           Seva Offerings
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
           Support Our Rescued Gau Matas
         </h2>
-        <p class="text-stone-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+        <p class="text-stone-700 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
           Every contribution directly finances fresh nutritious fodder, specialized medical care, and safe sheltered living for over 600 rescued cows.
         </p>
       </div>
@@ -390,13 +398,13 @@
 
             <!-- Card 1: ₹501 - Gau Seva Starter -->
             <div class="swiper-slide h-auto">
-              <div class="white-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-white">
+              <div class="cream-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
                 <div>
-                  <div class="flex items-center justify-between text-xs text-stone-500 font-semibold mb-4">
-                    <span class="text-saffron-800 bg-saffron-50 border border-saffron-200 px-3 py-1 rounded-full font-bold">
+                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4">
+                    <span class="text-saffron-800 bg-[#fcf0dd] border border-[#eed7ba] px-3 py-1 rounded-full font-bold">
                       Daily Fodder
                     </span>
-                    <span class="text-stone-500"><i class="fa-solid fa-cow text-saffron-600 mr-1"></i> 11 Cows</span>
+                    <span class="text-stone-600"><i class="fa-solid fa-cow text-saffron-600 mr-1"></i> 11 Cows</span>
                   </div>
                   
                   <div class="mb-4">
@@ -425,26 +433,29 @@
                   </ul>
                 </div>
 
-                <a href="https://rzp.io/rzp/501support" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
+                <a href="https://rzp.io/rzp/501support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
                   Donate ₹501
                 </a>
               </div>
             </div>
 
-            <!-- Card 2: ₹1,101 - Gau Poshan Seva (Featured) -->
+            <!-- Card 2: ₹1,101 - Gau Poshan Seva (Featured - No Clipped Badge) -->
             <div class="swiper-slide h-auto">
-              <div class="white-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-white border-2 border-saffron-500 shadow-md relative">
+              <div class="cream-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffcf5] border-2 border-saffron-500 shadow-md relative">
                 
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-saffron-600 text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-0.5 rounded-full shadow-sm">
-                  Recommended
-                </div>
-
                 <div>
-                  <div class="flex items-center justify-between text-xs text-stone-500 font-semibold mb-4 mt-2">
-                    <span class="text-saffron-800 bg-saffron-100 border border-saffron-300 px-3 py-1 rounded-full font-bold">
+                  <!-- Clean Top Badge inside Card Header (Fixes clipping in img1!) -->
+                  <div class="mb-3">
+                    <span class="inline-block bg-saffron-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-md shadow-sm">
+                      ★ Most Popular Choice
+                    </span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4">
+                    <span class="text-saffron-900 bg-[#faebd3] border border-[#f3d4a6] px-3 py-1 rounded-full font-bold">
                       Nutrition & Health
                     </span>
-                    <span class="text-saffron-700 font-semibold"><i class="fa-solid fa-cow mr-1"></i> 21 Cows</span>
+                    <span class="text-saffron-800 font-bold"><i class="fa-solid fa-cow mr-1"></i> 21 Cows</span>
                   </div>
                   
                   <div class="mb-4">
@@ -473,7 +484,7 @@
                   </ul>
                 </div>
 
-                <a href="https://rzp.io/rzp/1101support" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
+                <a href="https://rzp.io/rzp/1101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
                   Donate ₹1,101
                 </a>
               </div>
@@ -481,13 +492,13 @@
 
             <!-- Card 3: ₹2,101 - Gau Raksha Seva -->
             <div class="swiper-slide h-auto">
-              <div class="white-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-white">
+              <div class="cream-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
                 <div>
-                  <div class="flex items-center justify-between text-xs text-stone-500 font-semibold mb-4">
+                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4">
                     <span class="text-rose-800 bg-rose-50 border border-rose-200 px-3 py-1 rounded-full font-bold">
                       Medical Seva
                     </span>
-                    <span class="text-stone-500"><i class="fa-solid fa-kit-medical text-rose-600 mr-1"></i> Sick & Injured</span>
+                    <span class="text-stone-600"><i class="fa-solid fa-kit-medical text-rose-600 mr-1"></i> Sick & Injured</span>
                   </div>
                   
                   <div class="mb-4">
@@ -516,7 +527,7 @@
                   </ul>
                 </div>
 
-                <a href="https://rzp.io/rzp/2101support" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
+                <a href="https://rzp.io/rzp/2101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
                   Donate ₹2,101
                 </a>
               </div>
@@ -524,13 +535,13 @@
 
             <!-- Card 4: ₹3,101 - Gud Sawamani Sewa -->
             <div class="swiper-slide h-auto">
-              <div class="white-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-white">
+              <div class="cream-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
                 <div>
-                  <div class="flex items-center justify-between text-xs text-stone-500 font-semibold mb-4">
-                    <span class="text-amber-800 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full font-bold">
+                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4">
+                    <span class="text-amber-900 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full font-bold">
                       Special Feast
                     </span>
-                    <span class="text-stone-500"><i class="fa-solid fa-bowl-food text-amber-600 mr-1"></i> All 600+ Cows</span>
+                    <span class="text-stone-600"><i class="fa-solid fa-bowl-food text-amber-600 mr-1"></i> All 600+ Cows</span>
                   </div>
                   
                   <div class="mb-4">
@@ -559,7 +570,7 @@
                   </ul>
                 </div>
 
-                <a href="https://rzp.io/rzp/3101support" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
+                <a href="https://rzp.io/rzp/3101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
                   Donate ₹3,101
                 </a>
               </div>
@@ -567,7 +578,7 @@
 
             <!-- Card 5: Custom / Gau Dattak Sewa (Adopt a Cow) -->
             <div class="swiper-slide h-auto">
-              <div class="white-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-gradient-to-b from-stone-900 to-stone-950 text-white border-stone-800">
+              <div class="cream-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-gradient-to-b from-stone-900 to-stone-950 text-white border-stone-800">
                 <div>
                   <div class="flex items-center justify-between text-xs text-stone-300 font-semibold mb-4">
                     <span class="text-amber-300 bg-amber-400/20 border border-amber-400/30 px-3 py-1 rounded-full font-bold">
@@ -602,7 +613,7 @@
                   </ul>
                 </div>
 
-                <a href="https://rzp.io/rzp/adopt3months" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl font-bold text-center text-sm text-stone-950 bg-amber-300 hover:bg-amber-400 transition duration-150 block shadow-sm">
+                <a href="https://rzp.io/rzp/adopt3months" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-stone-950 bg-amber-300 hover:bg-amber-400 transition duration-150 block shadow-sm">
                   Adopt a Cow
                 </a>
               </div>
@@ -623,9 +634,9 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 6. ABOUT SAMARPAN GAUSHALA & FOUNDER (Clean, Dignified & Harmonious)     -->
+  <!-- 6. ABOUT SAMARPAN GAUSHALA & FOUNDER (Warm Off-White Aesthetic)           -->
   <!-- ========================================================================= -->
-  <section id="about" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-stone-200">
+  <section id="about" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#fbf6ee] border-t border-[#e8dac8]">
     <div class="max-w-7xl mx-auto space-y-16">
       
       <!-- Part 1: Campus Showcase & Client Description -->
@@ -633,10 +644,10 @@
         
         <!-- Large Campus Photo -->
         <div class="lg:col-span-7">
-          <div class="rounded-2xl overflow-hidden shadow-md border border-stone-200 group relative">
+          <div class="rounded-2xl overflow-hidden shadow-sm border border-[#e5d7c5] group relative">
             <img src="assets/gaushala-aerial.jpeg" alt="Samarpan Gaushala Aerial Campus" class="w-full h-80 sm:h-[400px] object-cover object-center group-hover:scale-105 transition duration-300" />
-            <div class="p-4 bg-stone-50 border-t border-stone-200">
-              <p class="text-xs text-stone-500 font-semibold uppercase tracking-wider">Campus View • Govardhan, Mathura</p>
+            <div class="p-4 bg-[#f8f0e3] border-t border-[#e5d7c5]">
+              <p class="text-xs text-stone-600 font-semibold uppercase tracking-wider">Campus View • Govardhan, Mathura</p>
               <p class="text-sm font-bold text-stone-800">Spacious, hygienic shelter & grazing grounds for over 600 cows.</p>
             </div>
           </div>
@@ -645,7 +656,7 @@
         <!-- Story & Mission Details (Verbatim from Client) -->
         <div class="lg:col-span-5 space-y-5">
           <div class="space-y-2">
-            <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-300/40">
+            <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-[#fde9cb] px-3.5 py-1 rounded-full border border-[#f5d29d]">
               About Samarpan Gaushala
             </span>
             <h2 class="text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
@@ -663,7 +674,7 @@
             <p>
               Today, Samarpan Gaushala provides care to <strong class="text-stone-900 font-bold">over 600 cows</strong>, including abandoned, helpless and injured animals.
             </p>
-            <div class="border-l-4 border-saffron-600 pl-4 py-2 bg-stone-50 rounded-r-xl text-stone-800 font-medium italic">
+            <div class="border-l-4 border-saffron-600 pl-4 py-2 bg-[#f8f0e3] rounded-r-xl text-stone-800 font-medium italic">
               "Our work is guided by one simple belief: every life deserves compassion, protection and dignity. For us, Gau Seva is not merely an act of charity. It is a lifelong commitment to selfless service."
             </div>
           </div>
@@ -692,18 +703,18 @@
       </div>
 
       <!-- Part 2: Dedicated Founder Showcase (Thakur Ji Big Photo & Clean Dignified Card) -->
-      <div class="rounded-2xl p-7 sm:p-9 bg-white border border-stone-200 shadow-sm">
+      <div class="rounded-2xl p-7 sm:p-9 bg-[#fffdf9] border border-[#e5d7c5] shadow-sm">
         <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
           
           <!-- Big Clear Portrait of Thakur Ji -->
-          <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border border-stone-300 shadow-sm flex-shrink-0">
+          <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border border-[#dfcfbc] shadow-sm flex-shrink-0">
             <img src="assets/sanjeev-krishna-thakur-ji.jpg" alt="Pujya Shri Sanjeev Krishna Thakur Ji" class="w-full h-full object-cover object-top" />
           </div>
 
           <!-- Founder Tribute Text -->
           <div class="space-y-4 flex-1 text-center md:text-left">
             <div>
-              <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-saffron-100 text-saffron-800 border border-saffron-200">
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#fde9cb] text-saffron-900 border border-[#f5d29d]">
                 प्रेरणा एवं संस्थापक • Sanctuary Founder & Spiritual Guide
               </span>
               <h3 class="text-2xl sm:text-3xl font-extrabold text-stone-900 font-hindi mt-1.5">
@@ -718,11 +729,11 @@
               Under whose divine guidance and inspiration, Samarpan Gaushala was established in 2009. His vision transforms Gau Seva into a lifelong commitment to selfless service and love for all living beings.
             </p>
 
-            <div class="bg-stone-50 p-4 rounded-xl border-l-4 border-saffron-600 text-stone-900 font-hindi text-base sm:text-lg italic leading-relaxed">
+            <div class="bg-[#f8f0e3] p-4 rounded-xl border-l-4 border-saffron-600 text-stone-900 font-hindi text-base sm:text-lg italic leading-relaxed">
               "गौ सेवा केवल धर्म नहीं, हमारी संस्कृति और मानवता का मूल आधार है। हर गौ माता के भीतर साक्षात् प्रभु का वास है।"
             </div>
 
-            <div class="flex flex-wrap items-center justify-center md:justify-start gap-6 text-xs text-stone-500 font-medium pt-1">
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-6 text-xs text-stone-600 font-medium pt-1">
               <span><i class="fa-solid fa-clock text-saffron-600 mr-1.5"></i> Inspiring Seva Since 2009</span>
               <span><i class="fa-solid fa-location-dot text-saffron-600 mr-1.5"></i> Govardhan, Mathura Dham</span>
             </div>
@@ -737,29 +748,29 @@
   <!-- ========================================================================= -->
   <!-- 7. OUR SEVA. THEIR WELL-BEING. (Authentic Photo-Backed Service Slider)     -->
   <!-- ========================================================================= -->
-  <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-stone-50 border-t border-stone-200">
+  <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#f5ede2] border-t border-[#e2d2bf]">
     <div class="max-w-7xl mx-auto">
       
       <!-- Section Header with Slider Navigation Controls -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-300/40">
+          <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-[#fde9cb] px-3.5 py-1 rounded-full border border-[#f5d29d]">
             Our Seva. Their Well-being.
           </span>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight mt-2">
             Five Dedicated Pillars of Daily Seva
           </h2>
-          <p class="text-stone-600 text-sm sm:text-base mt-1">
+          <p class="text-stone-700 text-sm sm:text-base mt-1">
             At Samarpan Gaushala, every day is an opportunity to serve with devotion and care.
           </p>
         </div>
 
         <!-- Custom Left / Right Slider Navigation Buttons -->
         <div class="flex items-center space-x-3">
-          <button id="pillarsPrev" aria-label="Previous Slide" class="w-11 h-11 rounded-full border border-stone-300 bg-white hover:bg-saffron-600 hover:text-white hover:border-saffron-600 text-stone-700 flex items-center justify-center transition shadow-sm">
+          <button id="pillarsPrev" aria-label="Previous Slide" class="w-11 h-11 rounded-full border border-[#dfcfbc] bg-[#fffdf9] hover:bg-saffron-600 hover:text-white hover:border-saffron-600 text-stone-700 flex items-center justify-center transition shadow-sm">
             <i class="fa-solid fa-arrow-left text-sm"></i>
           </button>
-          <button id="pillarsNext" aria-label="Next Slide" class="w-11 h-11 rounded-full border border-stone-300 bg-white hover:bg-saffron-600 hover:text-white hover:border-saffron-600 text-stone-700 flex items-center justify-center transition shadow-sm">
+          <button id="pillarsNext" aria-label="Next Slide" class="w-11 h-11 rounded-full border border-[#dfcfbc] bg-[#fffdf9] hover:bg-saffron-600 hover:text-white hover:border-saffron-600 text-stone-700 flex items-center justify-center transition shadow-sm">
             <i class="fa-solid fa-arrow-right text-sm"></i>
           </button>
         </div>
@@ -769,9 +780,9 @@
       <div class="swiper pillarsSwiper pb-8">
         <div class="swiper-wrapper items-stretch">
           
-          <!-- Pillar 1: Nourishment & Daily Feeding (Image permanently upright!) -->
+          <!-- Pillar 1: Nourishment & Daily Feeding -->
           <div class="swiper-slide h-auto">
-            <div class="white-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-white">
+            <div class="cream-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
               <div>
                 <div class="h-48 overflow-hidden relative bg-stone-100">
                   <img src="assets/gallery/IMG-20240915-WA0121.jpg.jpeg" alt="Nourishment & Daily Feeding" class="w-full h-full object-cover object-top hover:scale-105 transition duration-300" />
@@ -788,7 +799,7 @@
                   </p>
                 </div>
               </div>
-              <div class="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-saffron-700">
+              <div class="px-6 pb-6 pt-2 border-t border-[#f0e4d4] flex items-center justify-between text-xs font-bold text-saffron-700">
                 <span>Daily fresh green nutrition</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
@@ -797,7 +808,7 @@
 
           <!-- Pillar 2: Medical Care & Treatment -->
           <div class="swiper-slide h-auto">
-            <div class="white-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-white">
+            <div class="cream-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
               <div>
                 <div class="h-48 overflow-hidden relative bg-stone-100">
                   <img src="assets/gallery/IMG-20240915-WA0115.jpg.jpeg" alt="Medical Care & Treatment" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
@@ -814,7 +825,7 @@
                   </p>
                 </div>
               </div>
-              <div class="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-rose-700">
+              <div class="px-6 pb-6 pt-2 border-t border-[#f0e4d4] flex items-center justify-between text-xs font-bold text-rose-700">
                 <span>Dedicated veterinary attention</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
@@ -823,7 +834,7 @@
 
           <!-- Pillar 3: Shelter & Protection -->
           <div class="swiper-slide h-auto">
-            <div class="white-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-white">
+            <div class="cream-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
               <div>
                 <div class="h-48 overflow-hidden relative bg-stone-100">
                   <img src="assets/gallery/IMG-20240915-WA0125.jpg.jpeg" alt="Shelter & Protection" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
@@ -840,7 +851,7 @@
                   </p>
                 </div>
               </div>
-              <div class="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-emerald-700">
+              <div class="px-6 pb-6 pt-2 border-t border-[#f0e4d4] flex items-center justify-between text-xs font-bold text-emerald-700">
                 <span>Weatherproof clean sheds</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
@@ -849,7 +860,7 @@
 
           <!-- Pillar 4: Rescue & Rehabilitation -->
           <div class="swiper-slide h-auto">
-            <div class="white-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-white">
+            <div class="cream-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
               <div>
                 <div class="h-48 overflow-hidden relative bg-stone-100">
                   <img src="assets/gallery/FB_IMG_1742362471831.jpg.jpeg" alt="Rescue & Rehabilitation" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
@@ -866,7 +877,7 @@
                   </p>
                 </div>
               </div>
-              <div class="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-amber-700">
+              <div class="px-6 pb-6 pt-2 border-t border-[#f0e4d4] flex items-center justify-between text-xs font-bold text-amber-700">
                 <span>Emergency rescue response</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
@@ -875,7 +886,7 @@
 
           <!-- Pillar 5: Daily Gau Seva -->
           <div class="swiper-slide h-auto">
-            <div class="white-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-white">
+            <div class="cream-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
               <div>
                 <div class="h-48 overflow-hidden relative bg-stone-100">
                   <img src="assets/gallery/IMG-20240915-WA0126.jpg.jpeg" alt="Daily Gau Seva" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
@@ -892,7 +903,7 @@
                   </p>
                 </div>
               </div>
-              <div class="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-saffron-700">
+              <div class="px-6 pb-6 pt-2 border-t border-[#f0e4d4] flex items-center justify-between text-xs font-bold text-saffron-700">
                 <span>Continuous selfless dedication</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
@@ -908,7 +919,7 @@
   <!-- ======================================================== -->
   <!-- 8. OUR HONORARY AFFILIATIONS (Grand Vertical Cards Layout)-->
   <!-- ======================================================== -->
-  <section id="affiliations" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-stone-200">
+  <section id="affiliations" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#fbf6ee] border-t border-[#e8dac8]">
     <div class="max-w-5xl mx-auto">
       
       <!-- Section Header -->
@@ -919,7 +930,7 @@
         <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
           Our Honorary Affiliations
         </h2>
-        <p class="text-stone-600 text-sm sm:text-base">
+        <p class="text-stone-700 text-sm sm:text-base">
           Eminent spiritual leaders and public representatives who guide and bless our mission.
         </p>
       </div>
@@ -928,8 +939,8 @@
       <div class="space-y-6">
         
         <!-- Dignitary 1: Jagadguru Malookpeethadhishwar Pujya Shri Rajendra Das ji Maharaj -->
-        <div class="white-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
-          <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-stone-200 flex-shrink-0 shadow-sm">
+        <div class="cream-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5]">
+          <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-[#dfcfbc] flex-shrink-0 shadow-sm">
             <img src="assets/affiliations/rajendra-das-ji.jpeg" alt="Jagadguru Malookpeethadhishwar Pujya Shri Rajendra Das ji Maharaj" class="w-full h-full object-cover object-top" />
           </div>
           <div class="space-y-3 flex-1 text-center md:text-left">
@@ -943,15 +954,15 @@
               </p>
             </div>
             <!-- Testimony Part ONLY in Hindi as requested by client -->
-            <div class="bg-stone-50 border-l-4 border-saffron-600 p-4 rounded-r-xl text-stone-800 text-sm sm:text-base leading-relaxed font-hindi italic">
+            <div class="bg-[#f8f0e3] border-l-4 border-saffron-600 p-4 rounded-r-xl text-stone-800 text-sm sm:text-base leading-relaxed font-hindi italic">
               "समर्पण गौशाला में पूज्य संजीव कृष्ण ठाकुर जी के सानिध्य में जो गौ सेवा हो रही है, वह वास्तव में निष्काम और वंदनीय है। यहाँ गौ माता की सेवा केवल औपचारिकता नहीं बल्कि साक्षात् भगवद् आराधना के रूप में की जा रही है। समस्त सनातन बंधुओं को इस पुनीत कार्य से अवश्य जुड़ना चाहिए।"
             </div>
           </div>
         </div>
 
         <!-- Dignitary 2: Pujya Govind Dev Giri Ji Maharaj -->
-        <div class="white-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
-          <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-stone-200 flex-shrink-0 shadow-sm">
+        <div class="cream-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5]">
+          <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-[#dfcfbc] flex-shrink-0 shadow-sm">
             <img src="assets/affiliations/govind-dev-giri-ji.jpeg" alt="Pujya Govind Dev Giri Ji Maharaj" class="w-full h-full object-cover object-top" />
           </div>
           <div class="space-y-3 flex-1 text-center md:text-left">
@@ -965,15 +976,15 @@
               </p>
             </div>
             <!-- Testimony Part ONLY in Hindi as requested by client -->
-            <div class="bg-stone-50 border-l-4 border-saffron-600 p-4 rounded-r-xl text-stone-800 text-sm sm:text-base leading-relaxed font-hindi italic">
+            <div class="bg-[#f8f0e3] border-l-4 border-saffron-600 p-4 rounded-r-xl text-stone-800 text-sm sm:text-base leading-relaxed font-hindi italic">
               "गौ माता हमारी भारतीय संस्कृति और अध्यात्म का प्राण हैं। समर्पण गौशाला द्वारा 600 से अधिक असहाय और निराश्रित गायों का वात्सल्यपूर्ण संरक्षण भारतीय परंपरा का सच्चा निर्वहन है। इस पवित्र प्रकल्प को मेरा हृदय से आशीर्वाद और शुभकामनाएं।"
             </div>
           </div>
         </div>
 
         <!-- Dignitary 3: Shri Vishnu Deo Sai Ji -->
-        <div class="white-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
-          <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-stone-200 flex-shrink-0 shadow-sm">
+        <div class="cream-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5]">
+          <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-[#dfcfbc] flex-shrink-0 shadow-sm">
             <img src="assets/affiliations/vishnu-deo-sai.jpeg" alt="Shri Vishnu Deo Sai Ji" class="w-full h-full object-cover object-top" />
           </div>
           <div class="space-y-3 flex-1 text-center md:text-left">
@@ -987,15 +998,15 @@
               </p>
             </div>
             <!-- Testimony Part ONLY in Hindi as requested by client -->
-            <div class="bg-stone-50 border-l-4 border-saffron-600 p-4 rounded-r-xl text-stone-800 text-sm sm:text-base leading-relaxed font-hindi italic">
+            <div class="bg-[#f8f0e3] border-l-4 border-saffron-600 p-4 rounded-r-xl text-stone-800 text-sm sm:text-base leading-relaxed font-hindi italic">
               "समर्पण गौशाला द्वारा पिछले 15 वर्षों से गौ संरक्षण, बेसहारा गौवंश के आश्रय और उपचार का कार्य अत्यंत प्रशंसनीय और प्रेरणादायी है। समाज के हर वर्ग को आगे आकर गौ संवर्धन और इस निस्वार्थ सेवा यात्रा में अपनी आहुति देनी चाहिए।"
             </div>
           </div>
         </div>
 
         <!-- Dignitary 4: Shri Manoj Tiwari Ji -->
-        <div class="white-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-white">
-          <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-stone-200 flex-shrink-0 shadow-sm">
+        <div class="cream-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5]">
+          <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-[#dfcfbc] flex-shrink-0 shadow-sm">
             <img src="assets/affiliations/manoj-tiwari.jpeg" alt="Shri Manoj Tiwari Ji" class="w-full h-full object-cover object-top" />
           </div>
           <div class="space-y-3 flex-1 text-center md:text-left">
@@ -1009,7 +1020,7 @@
               </p>
             </div>
             <!-- Testimony Part ONLY in Hindi as requested by client -->
-            <div class="bg-stone-50 border-l-4 border-saffron-600 p-4 rounded-r-xl text-stone-800 text-sm sm:text-base leading-relaxed font-hindi italic">
+            <div class="bg-[#f8f0e3] border-l-4 border-saffron-600 p-4 rounded-r-xl text-stone-800 text-sm sm:text-base leading-relaxed font-hindi italic">
               "समर्पण गौशाला की निष्ठा, पारदर्शिता और गौ माताओं के प्रति समर्पण भाव देखकर मन अत्यंत प्रसन्न होता है। यहाँ आकर गौ सेवा का प्रत्यक्ष अनुभव करना अलौकिक है। मैं सभी देशवासियों से अपील करता हूँ कि समर्पण गौशाला के साथ जुड़कर इस पुण्य कार्य में सहयोगी बनें।"
             </div>
           </div>
@@ -1021,47 +1032,47 @@
   </section>
 
   <!-- ======================================================== -->
-  <!-- 9. PHOTO GALLERY                                         -->
+  <!-- 9. PHOTO GALLERY (Warm Cream Background)                 -->
   <!-- ======================================================== -->
-  <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-stone-50 border-t border-stone-200">
+  <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#f5ede2] border-t border-[#e2d2bf]">
     <div class="max-w-7xl mx-auto">
       
       <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
-        <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-saffron-100 px-3.5 py-1 rounded-full border border-saffron-300/40">
+        <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-[#fde9cb] px-3.5 py-1 rounded-full border border-[#f5d29d]">
           Sanctuary Glimpses
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
           Life at Samarpan Gaushala
         </h2>
-        <p class="text-stone-600 text-sm sm:text-base">
+        <p class="text-stone-700 text-sm sm:text-base">
           Real moments of nourishment, medical rehabilitation, and joyful care in Govardhan, Mathura.
         </p>
       </div>
 
       <!-- Real Photos Grid (With Upright Images) -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-stone-200 shadow-sm">
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
           <img src="assets/gallery/IMG-20240915-WA0121.jpg.jpeg" alt="Fodder Feeding at Gaushala" class="w-full h-full object-cover object-top hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-stone-200 shadow-sm">
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
           <img src="assets/gallery/IMG-20240915-WA0125.jpg.jpeg" alt="Cows in Clean Shed" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-stone-200 shadow-sm">
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
           <img src="assets/gallery/IMG-20240915-WA0126.jpg.jpeg" alt="Affectionate Care" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-stone-200 shadow-sm">
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
           <img src="assets/gallery/FB_IMG_1742362382336.jpg.jpeg" alt="Healthy Grazing" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-stone-200 shadow-sm">
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
           <img src="assets/gallery/FB_IMG_1742362452649.jpg.jpeg" alt="Bulk Fodder Supply" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-stone-200 shadow-sm">
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
           <img src="assets/gallery/FB_IMG_1742362471831.jpg.jpeg" alt="Calf Nurturing" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-stone-200 shadow-sm">
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
           <img src="assets/gallery/IMG-20240915-WA0115.jpg.jpeg" alt="Veterinary Checkup" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-stone-200 shadow-sm">
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
           <img src="assets/gallery/IMG-20240915-WA0119.jpg.jpeg" alt="Peaceful Sanctuary Environment" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
         </div>
       </div>
