@@ -9,10 +9,10 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logo.png" />
 
-  <!-- Google Fonts: Plus Jakarta Sans for crisp typography, Noto Sans Devanagari for Hindi -->
+  <!-- Fonts: Plus Jakarta Sans & Noto Serif / Devanagari for elegant authentic cards -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -41,14 +41,16 @@
               800: '#8e3e0e',
               900: '#75340f',
             },
-            primary: {
+            vedic: {
               red: '#8b1e15',
+              darkRed: '#731610',
               deepRed: '#54100b',
               maroon: '#3d0a07',
             }
           },
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Lora"', 'Georgia', 'serif'],
             hindi: ['"Noto Sans Devanagari"', 'sans-serif'],
           }
         }
@@ -65,7 +67,7 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #fbf6ee; /* Rich warm Vedic cream */
+      background-color: #fbf6ee; /* Rich warm temple cream */
       color: #2b231c;
       overflow-x: hidden;
     }
@@ -90,28 +92,53 @@
       to { transform: translateX(-100%); }
     }
 
-    /* Warm Cream Cards with Gold-Sand Borders */
-    .cream-card {
-      background: #fffdf9;
-      border: 1px solid #e5d7c5;
-      box-shadow: 0 4px 18px -2px rgba(80, 45, 15, 0.05);
-      transition: all 0.25s ease;
+    /* Flash Shine Animation for Donate Buttons */
+    @keyframes flash-sweep {
+      0% {
+        transform: translateX(-160%) skewX(-25deg);
+      }
+      25%, 100% {
+        transform: translateX(260%) skewX(-25deg);
+      }
     }
-    .cream-card:hover {
-      border-color: #c56b05;
-      box-shadow: 0 12px 28px -4px rgba(139, 30, 21, 0.1);
-      transform: translateY(-3px);
+    .shine-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shine-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent 35%, rgba(255, 255, 255, 0.45) 50%, transparent 65%);
+      animation: flash-sweep 3.5s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    /* Exact Card Design from User's img1 */
+    .donor-card {
+      background: #fffdf9;
+      border: 1.5px solid #8b1e15;
+      border-radius: 26px;
+      box-shadow: 0 10px 30px -5px rgba(115, 22, 16, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .donor-card:hover {
+      box-shadow: 0 18px 40px -6px rgba(115, 22, 16, 0.16);
+      transform: translateY(-4px);
     }
 
     /* Swiper Navigation Custom Buttons */
     .swiper-button-next, .swiper-button-prev {
       background: #fffdf9;
-      color: #75340f;
+      color: #8b1e15;
       width: 44px;
       height: 44px;
       border-radius: 9999px;
-      box-shadow: 0 4px 12px rgba(80, 45, 15, 0.15);
-      border: 1px solid #dfcfbc;
+      box-shadow: 0 4px 12px rgba(90, 20, 10, 0.15);
+      border: 1px solid #ebd8c4;
       transition: all 0.2s ease;
     }
     .swiper-button-next:after, .swiper-button-prev:after {
@@ -119,9 +146,9 @@
       font-weight: 700;
     }
     .swiper-button-next:hover, .swiper-button-prev:hover {
-      background: #b04e08;
+      background: #8b1e15;
       color: #ffffff;
-      border-color: #b04e08;
+      border-color: #8b1e15;
     }
     .swiper-pagination-bullet {
       background: #d8c3ad;
@@ -131,18 +158,18 @@
       transition: all 0.2s;
     }
     .swiper-pagination-bullet-active {
-      background: #b04e08;
+      background: #8b1e15;
       width: 26px;
       border-radius: 4px;
     }
   </style>
 </head>
-<body class="selection:bg-saffron-200 selection:text-primary-deepRed overflow-x-hidden">
+<body class="selection:bg-saffron-200 selection:text-vedic-deepRed overflow-x-hidden">
 
   <!-- ======================================================== -->
   <!-- 1. TOP STRIP: Infinite Smooth Scrolling Marquee          -->
   <!-- ======================================================== -->
-  <div class="bg-gradient-to-r from-primary-maroon via-primary-deepRed to-primary-maroon text-amber-100 text-xs sm:text-sm py-2.5 border-b border-amber-900/60 overflow-hidden shadow-inner">
+  <div class="bg-gradient-to-r from-vedic-maroon via-vedic-deepRed to-vedic-maroon text-amber-100 text-xs sm:text-sm py-2.5 border-b border-amber-900/60 overflow-hidden shadow-inner">
     <div class="marquee-wrapper">
       
       <!-- Track 1 -->
@@ -205,7 +232,7 @@
   </div>
 
   <!-- ======================================================== -->
-  <!-- 2. WARM HEADER: Warm Cream Backdrop                      -->
+  <!-- 2. WARM HEADER: Clean Transparent Logo                   -->
   <!-- ======================================================== -->
   <header class="sticky top-0 z-50 bg-[#fffdf9]/95 backdrop-blur-md border-b border-[#e8dac8] shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -216,14 +243,14 @@
           <img src="assets/logo.png" alt="Samarpan Gaushala Logo" class="w-13 h-13 sm:w-16 sm:h-16 h-14 w-14 object-contain group-hover:scale-105 transition duration-200" />
           <div>
             <div class="flex items-center space-x-2">
-              <span class="text-lg sm:text-2xl font-extrabold tracking-tight text-primary-deepRed font-sans">Samarpan Gaushala</span>
+              <span class="text-lg sm:text-2xl font-extrabold tracking-tight text-vedic-deepRed font-sans">Samarpan Gaushala</span>
               <span class="hidden md:inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#fbf0df] text-saffron-800 border border-[#edd7bc]">Govardhan, Mathura</span>
             </div>
             <p class="text-[11px] sm:text-xs text-stone-600 font-medium">A Sacred Haven of Compassion • Est. 2009</p>
           </div>
         </a>
 
-        <!-- Right Side: Phone + Direct Donate CTA -->
+        <!-- Right Side: Phone + Direct Donate CTA with Shine Effect -->
         <div class="flex items-center space-x-2 sm:space-x-5">
           
           <div class="hidden sm:flex flex-col text-right">
@@ -233,7 +260,7 @@
             </a>
           </div>
 
-          <a href="#donate-packages" class="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 rounded-full font-bold text-white text-xs sm:text-sm bg-saffron-600 hover:bg-saffron-700 shadow-md transition duration-150">
+          <a href="#donate-packages" class="shine-btn inline-flex items-center justify-center px-5 sm:px-6 py-2.5 rounded-full font-bold text-white text-xs sm:text-sm bg-gradient-to-r from-vedic-darkRed to-vedic-deepRed hover:from-vedic-red hover:to-vedic-darkRed shadow-md transition duration-150">
             <span>Donate Now</span>
             <i class="fa-solid fa-heart ml-2 text-rose-200 text-xs"></i>
           </a>
@@ -244,60 +271,61 @@
     </div>
   </header>
 
-  <!-- ======================================================== -->
-  <!-- 3. HERO SECTION: Clean, Natural, Uncluttered             -->
-  <!-- ======================================================== -->
-  <section id="hero" class="relative min-h-[85vh] flex items-center justify-center text-white overflow-hidden bg-stone-900">
-    <!-- Hero Background Image (key picture on top) -->
+  <!-- ========================================================================= -->
+  <!-- 3. HERO SECTION: Background Image CLEARLY VISIBLE (Fixed img2 darkening!) -->
+  <!-- Soft gradient on left text area, crystal clear image of Thakur Ji & calf   -->
+  <!-- ========================================================================= -->
+  <section id="hero" class="relative min-h-[85vh] sm:min-h-[88vh] flex items-center text-white overflow-hidden bg-stone-900">
+    <!-- Hero Background Image (Natural Brightness, Not Blacked Out!) -->
     <div class="absolute inset-0 z-0">
-      <img src="assets/hero-bg.jpeg" alt="Pujya Shri Sanjiv Krishna Thakur Ji with Gau Mata" class="w-full h-full object-cover object-center filter brightness-[0.88]" />
-      <!-- Dark Vignette Overlay for Crisp Text Readability -->
-      <div class="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/70 to-stone-950/40"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-transparent to-stone-950/40"></div>
+      <img src="assets/hero-bg.jpeg" alt="Pujya Shri Sanjiv Krishna Thakur Ji with Gau Mata" class="w-full h-full object-cover object-[center_right] sm:object-center filter brightness-[1.0] contrast-[1.02]" />
+      <!-- Asymmetrical Overlay: Dark on left for text legibility, CLEAR on right so Thakur Ji and the calf shine! -->
+      <div class="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-stone-950/30"></div>
     </div>
 
-    <!-- Hero Content -->
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-left">
-      
-      <div class="space-y-6">
+    <!-- Hero Content (Positioned on Left) -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
+      <div class="max-w-2xl space-y-6">
         
         <!-- Sacred Badge -->
-        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-amber-200 text-xs sm:text-sm font-semibold backdrop-blur-md">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-stone-950/60 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-semibold backdrop-blur-md">
           <i class="fa-solid fa-hands-praying text-amber-400"></i>
           <span>A Sacred Haven of Compassion • Serving Gau Mata Since 2009</span>
         </div>
 
         <!-- Main Headline -->
         <div class="space-y-2">
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md">
             Samarpan Gaushala
           </h1>
-          <p class="text-xl sm:text-3xl lg:text-4xl font-bold text-amber-300">
+          <p class="text-xl sm:text-3xl lg:text-4xl font-bold text-amber-300 drop-shadow">
             A Sacred Haven of Compassion. A Commitment to Gau Seva.
           </p>
         </div>
 
         <!-- Exact client paragraph with 600+ cows -->
-        <div class="space-y-3 text-stone-200 text-sm sm:text-lg leading-relaxed max-w-2xl font-normal">
+        <div class="space-y-3 text-stone-200 text-sm sm:text-base leading-relaxed font-normal drop-shadow">
           <p>
             Established in 2009 by <strong class="text-white font-semibold">Pujya Shri Sanjiv Krishna Thakur Ji</strong>, Samarpan Gaushala is dedicated to the care, protection and service of Gau Mata.
           </p>
-          <p class="text-stone-300 text-xs sm:text-base">
+          <p class="text-stone-300 text-xs sm:text-sm">
             Providing shelter, nourishment and medical care to over <strong class="text-amber-300 font-bold">600+ cows</strong>, we strive to give every cow the dignity, safety and compassion it deserves.
           </p>
         </div>
 
         <!-- Clean Callout -->
-        <div class="text-amber-200 text-base sm:text-lg font-bold">
+        <div class="text-amber-200 text-base sm:text-lg font-bold drop-shadow">
           "Your Contribution Can Save a Life."
         </div>
 
-        <!-- Hero Actions -->
+        <!-- Hero Actions (With Flash Shine Animation) -->
         <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-          <a href="#donate-packages" class="px-8 py-3.5 rounded-xl font-bold text-center text-sm sm:text-base text-white bg-saffron-600 hover:bg-saffron-700 shadow-lg transition duration-150">
-            DONATE NOW
+          <a href="#donate-packages" class="shine-btn px-8 py-3.5 rounded-xl font-bold text-center text-sm sm:text-base text-white bg-gradient-to-r from-vedic-red to-vedic-deepRed hover:from-vedic-darkRed hover:to-vedic-maroon shadow-xl transition duration-150 flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-heart text-rose-200"></i>
+            <span>DONATE NOW</span>
           </a>
-          <a href="#about" class="px-7 py-3.5 rounded-xl font-semibold text-center text-sm sm:text-base text-stone-200 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition duration-150">
+          <a href="#about" class="px-7 py-3.5 rounded-xl font-semibold text-center text-sm sm:text-base text-stone-100 bg-stone-900/60 hover:bg-stone-900/80 border border-white/30 backdrop-blur-md transition duration-150">
             EXPLORE OUR SEVA
           </a>
         </div>
@@ -319,14 +347,13 @@
         </div>
 
       </div>
-
     </div>
   </section>
 
   <!-- ======================================================== -->
   <!-- 4. STATS BAR (600+ Cows & Counter Animation)             -->
   <!-- ======================================================== -->
-  <section class="bg-primary-deepRed text-white py-10 px-4 border-b border-amber-900/40">
+  <section class="bg-vedic-deepRed text-white py-10 px-4 border-b border-amber-900/40">
     <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
       
       <!-- Counter 1: 600+ Cows -->
@@ -353,7 +380,7 @@
       <div class="p-2 sm:p-3 border-l-0 md:border-l border-white/10">
         <div class="flex items-center justify-center space-x-0.5">
           <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300 counter" data-target="100">100</span>
-          <span class="text-3xl sm:text-4xl font-extrabold text-amber-300">%</span>
+          <span class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-amber-300">%</span>
         </div>
         <p class="text-xs sm:text-sm font-semibold text-stone-200 mt-1">Fresh Fodder & Healthcare</p>
         <p class="text-[11px] text-amber-200/80">पौष्टिक आहार व चिकित्सा</p>
@@ -372,8 +399,8 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 5. SEVA OFFERINGS & CONTRIBUTIONS (Warm Off-White & Cream Palette - img1) -->
-  <!-- Rich warm cream theme, no clipped badges, beautiful balanced cards       -->
+  <!-- 5. SEVA OFFERINGS & CONTRIBUTIONS (EXACT CARD DESIGN FROM USER'S IMG1)    -->
+  <!-- Warm cream card, delicate red border, golden underline, shine button      -->
   <!-- ========================================================================= -->
   <section id="donate-packages" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#f5ede2] border-t border-[#e2d2bf]">
     <div class="max-w-7xl mx-auto">
@@ -396,226 +423,393 @@
         <div class="swiper sevaCardsSwiper pb-14">
           <div class="swiper-wrapper items-stretch">
 
-            <!-- Card 1: ₹501 - Gau Seva Starter -->
+            <!-- Card 1: ₹501 - Gau Seva Starter (Exact replica of User's img1) -->
             <div class="swiper-slide h-auto">
-              <div class="cream-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
-                <div>
-                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4">
-                    <span class="text-saffron-800 bg-[#fcf0dd] border border-[#eed7ba] px-3 py-1 rounded-full font-bold">
-                      Daily Fodder
-                    </span>
-                    <span class="text-stone-600"><i class="fa-solid fa-cow text-saffron-600 mr-1"></i> 11 Cows</span>
-                  </div>
+              <div class="donor-card p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffdfa]">
+                <div class="space-y-4">
                   
-                  <div class="mb-4">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-stone-900">₹501</div>
-                    <h3 class="text-lg font-bold text-stone-900 mt-1">Gau Seva Starter</h3>
-                    <p class="text-xs text-stone-600 font-medium mt-1">One day fodder support for 11 rescued Gau Matas</p>
+                  <!-- Top Row: Badge + Divider + Target -->
+                  <div class="flex items-center justify-between text-xs font-semibold">
+                    <span class="bg-[#fef0dc] border border-[#f6d7b2] text-[#7a2e16] px-3.5 py-1 rounded-full flex items-center space-x-1.5">
+                      <i class="fa-solid fa-leaf text-saffron-600 text-[11px]"></i>
+                      <span>Daily Fodder</span>
+                    </span>
+                    <span class="text-[#dfcfbc] font-light">|</span>
+                    <span class="text-[#7a2e16] flex items-center space-x-1.5 font-bold">
+                      <i class="fa-solid fa-cow text-[#a04018]"></i>
+                      <span>11 Cows</span>
+                    </span>
                   </div>
 
-                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-5">
-                    Provides fresh green fodder, nutritious dry straw, and clean drinking water for 11 rescued cows for an entire day.
-                  </p>
+                  <!-- Price & Hand-Drawn Golden Underline -->
+                  <div class="space-y-1">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-[#3a0c08] font-sans tracking-tight">
+                      ₹501
+                    </div>
+                    <!-- Golden Brush Underline -->
+                    <svg class="w-24 h-2 text-[#d4993a]" viewBox="0 0 100 8" fill="none">
+                      <path d="M2 5C25 2 75 7 98 4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                  </div>
 
-                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-700 mb-6">
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
-                      <span>11 गायों के लिए एक दिन का हरा चारा व तूड़ी</span>
+                  <!-- Title & Subtitle -->
+                  <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#3a0c08] font-serif leading-tight">
+                      Gau Seva Starter
+                    </h3>
+                    <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">
+                      One day fodder support for 11 rescued Gau Matas.
+                    </p>
+                  </div>
+
+                  <!-- Middle Highlight Card Box -->
+                  <div class="bg-[#faefe3] border border-[#f0dec9] rounded-2xl p-4 flex items-center space-x-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-white/80 border border-[#ecd4be] flex items-center justify-center text-saffron-700 flex-shrink-0 text-lg shadow-sm">
+                      <i class="fa-solid fa-wheat-awn"></i>
+                    </div>
+                    <p class="text-xs text-stone-700 leading-relaxed font-medium">
+                      Provides fresh green fodder, nutritious dry straw, and clean drinking water for 11 rescued cows for an entire day.
+                    </p>
+                  </div>
+
+                  <!-- Bullet List with Red Circle Checks -->
+                  <ul class="space-y-3 text-xs sm:text-sm text-stone-700 pt-1">
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
+                      <span>11 गायों के लिए एक दिन का हरा चारा व तूड़ी व्यवस्था</span>
                     </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>Clean drinking water & shed maintenance</span>
                     </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>Instant 80G tax receipt on email/SMS</span>
                     </li>
                   </ul>
+
                 </div>
 
-                <a href="https://rzp.io/rzp/501support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
-                  Donate ₹501
-                </a>
+                <!-- Shine Button -->
+                <div class="pt-6">
+                  <a href="https://rzp.io/rzp/501support" target="_blank" rel="noopener noreferrer" class="shine-btn w-full py-3.5 rounded-2xl font-bold text-center text-base text-white bg-gradient-to-r from-[#801815] to-[#55100b] hover:from-[#921e1a] hover:to-[#6b130e] shadow-md transition duration-150 flex items-center justify-center space-x-2">
+                    <span>Donate ₹501</span>
+                    <span>→</span>
+                  </a>
+                </div>
+
               </div>
             </div>
 
-            <!-- Card 2: ₹1,101 - Gau Poshan Seva (Featured - No Clipped Badge) -->
+            <!-- Card 2: ₹1,101 - Gau Poshan Seva (Matching img1 design) -->
             <div class="swiper-slide h-auto">
-              <div class="cream-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffcf5] border-2 border-saffron-500 shadow-md relative">
-                
-                <div>
-                  <!-- Clean Top Badge inside Card Header (Fixes clipping in img1!) -->
-                  <div class="mb-3">
-                    <span class="inline-block bg-saffron-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-md shadow-sm">
-                      ★ Most Popular Choice
-                    </span>
-                  </div>
-
-                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4">
-                    <span class="text-saffron-900 bg-[#faebd3] border border-[#f3d4a6] px-3 py-1 rounded-full font-bold">
-                      Nutrition & Health
-                    </span>
-                    <span class="text-saffron-800 font-bold"><i class="fa-solid fa-cow mr-1"></i> 21 Cows</span>
-                  </div>
+              <div class="donor-card p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffcf7] ring-2 ring-[#8b1e15]/20">
+                <div class="space-y-4">
                   
-                  <div class="mb-4">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-stone-900">₹1,101</div>
-                    <h3 class="text-lg font-bold text-stone-900 mt-1">Gau Poshan Seva</h3>
-                    <p class="text-xs text-saffron-700 font-semibold mt-1">Nutritious fodder + basic care for 21 Gau Matas</p>
+                  <!-- Top Row: Badge + Divider + Target -->
+                  <div class="flex items-center justify-between text-xs font-semibold">
+                    <span class="bg-[#fef0dc] border border-[#f6d7b2] text-[#7a2e16] px-3.5 py-1 rounded-full flex items-center space-x-1.5">
+                      <i class="fa-solid fa-bowl-food text-saffron-600 text-[11px]"></i>
+                      <span>Nutrition & Care</span>
+                    </span>
+                    <span class="text-[#dfcfbc] font-light">|</span>
+                    <span class="text-[#7a2e16] flex items-center space-x-1.5 font-bold">
+                      <i class="fa-solid fa-cow text-[#a04018]"></i>
+                      <span>21 Cows</span>
+                    </span>
                   </div>
 
-                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-5">
-                    Provides essential nutrition, protein-rich grain feed (Khali, Chokar), mineral supplements, and basic healthcare for 21 cows.
-                  </p>
+                  <!-- Price & Hand-Drawn Golden Underline -->
+                  <div class="space-y-1">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-[#3a0c08] font-sans tracking-tight">
+                      ₹1,101
+                    </div>
+                    <!-- Golden Brush Underline -->
+                    <svg class="w-28 h-2 text-[#d4993a]" viewBox="0 0 100 8" fill="none">
+                      <path d="M2 5C25 2 75 7 98 4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                  </div>
 
-                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-700 mb-6">
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                  <!-- Title & Subtitle -->
+                  <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#3a0c08] font-serif leading-tight">
+                      Gau Poshan Seva
+                    </h3>
+                    <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">
+                      Nutritious fodder + basic care for 21 Gau Matas.
+                    </p>
+                  </div>
+
+                  <!-- Middle Highlight Card Box -->
+                  <div class="bg-[#faefe3] border border-[#f0dec9] rounded-2xl p-4 flex items-center space-x-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-white/80 border border-[#ecd4be] flex items-center justify-center text-saffron-700 flex-shrink-0 text-lg shadow-sm">
+                      <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <p class="text-xs text-stone-700 leading-relaxed font-medium">
+                      Provides essential nutrition, protein-rich grain feed (Khali, Chokar), mineral mix, and basic healthcare for 21 cows.
+                    </p>
+                  </div>
+
+                  <!-- Bullet List with Red Circle Checks -->
+                  <ul class="space-y-3 text-xs sm:text-sm text-stone-700 pt-1">
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>21 गायों हेतु पौष्टिक आहार (खल, चोकर, मिनरल्स)</span>
                     </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>Basic healthcare & routine veterinary care</span>
                     </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>80G tax exemption eligible</span>
                     </li>
                   </ul>
+
                 </div>
 
-                <a href="https://rzp.io/rzp/1101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
-                  Donate ₹1,101
-                </a>
+                <!-- Shine Button -->
+                <div class="pt-6">
+                  <a href="https://rzp.io/rzp/1101support" target="_blank" rel="noopener noreferrer" class="shine-btn w-full py-3.5 rounded-2xl font-bold text-center text-base text-white bg-gradient-to-r from-[#801815] to-[#55100b] hover:from-[#921e1a] hover:to-[#6b130e] shadow-md transition duration-150 flex items-center justify-center space-x-2">
+                    <span>Donate ₹1,101</span>
+                    <span>→</span>
+                  </a>
+                </div>
+
               </div>
             </div>
 
-            <!-- Card 3: ₹2,101 - Gau Raksha Seva -->
+            <!-- Card 3: ₹2,101 - Gau Raksha Seva (Matching img1 design) -->
             <div class="swiper-slide h-auto">
-              <div class="cream-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
-                <div>
-                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4">
-                    <span class="text-rose-800 bg-rose-50 border border-rose-200 px-3 py-1 rounded-full font-bold">
-                      Medical Seva
-                    </span>
-                    <span class="text-stone-600"><i class="fa-solid fa-kit-medical text-rose-600 mr-1"></i> Sick & Injured</span>
-                  </div>
+              <div class="donor-card p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffdfa]">
+                <div class="space-y-4">
                   
-                  <div class="mb-4">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-stone-900">₹2,101</div>
-                    <h3 class="text-lg font-bold text-stone-900 mt-1">Gau Raksha Seva</h3>
-                    <p class="text-xs text-stone-600 font-medium mt-1">Medical care + shelter maintenance for sick cows</p>
+                  <!-- Top Row: Badge + Divider + Target -->
+                  <div class="flex items-center justify-between text-xs font-semibold">
+                    <span class="bg-[#feebee] border border-[#fbd0d5] text-rose-900 px-3.5 py-1 rounded-full flex items-center space-x-1.5">
+                      <i class="fa-solid fa-kit-medical text-rose-600 text-[11px]"></i>
+                      <span>Medical Seva</span>
+                    </span>
+                    <span class="text-[#dfcfbc] font-light">|</span>
+                    <span class="text-[#7a2e16] flex items-center space-x-1.5 font-bold">
+                      <i class="fa-solid fa-hospital text-rose-700"></i>
+                      <span>Sick & Injured</span>
+                    </span>
                   </div>
 
-                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-5">
-                    Covers intensive medication, wound dressings, doctor visits, and weather-protected recovery shelter for injured and ailing cows.
-                  </p>
+                  <!-- Price & Hand-Drawn Golden Underline -->
+                  <div class="space-y-1">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-[#3a0c08] font-sans tracking-tight">
+                      ₹2,101
+                    </div>
+                    <!-- Golden Brush Underline -->
+                    <svg class="w-28 h-2 text-[#d4993a]" viewBox="0 0 100 8" fill="none">
+                      <path d="M2 5C25 2 75 7 98 4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                  </div>
 
-                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-700 mb-6">
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                  <!-- Title & Subtitle -->
+                  <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#3a0c08] font-serif leading-tight">
+                      Gau Raksha Seva
+                    </h3>
+                    <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">
+                      Medical care + shelter maintenance for sick cows.
+                    </p>
+                  </div>
+
+                  <!-- Middle Highlight Card Box -->
+                  <div class="bg-[#faefe3] border border-[#f0dec9] rounded-2xl p-4 flex items-center space-x-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-white/80 border border-[#ecd4be] flex items-center justify-center text-rose-700 flex-shrink-0 text-lg shadow-sm">
+                      <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <p class="text-xs text-stone-700 leading-relaxed font-medium">
+                      Covers intensive medication, wound dressings, veterinary doctor visits, and weather-protected recovery shelter.
+                    </p>
+                  </div>
+
+                  <!-- Bullet List with Red Circle Checks -->
+                  <ul class="space-y-3 text-xs sm:text-sm text-stone-700 pt-1">
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>वृद्ध व बीमार गौ माताओं के लिए दवाइयां व इंजेक्शन</span>
                     </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>Dedicated veterinary doctor supervision</span>
                     </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>Special infirmary shed maintenance</span>
                     </li>
                   </ul>
+
                 </div>
 
-                <a href="https://rzp.io/rzp/2101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
-                  Donate ₹2,101
-                </a>
+                <!-- Shine Button -->
+                <div class="pt-6">
+                  <a href="https://rzp.io/rzp/2101support" target="_blank" rel="noopener noreferrer" class="shine-btn w-full py-3.5 rounded-2xl font-bold text-center text-base text-white bg-gradient-to-r from-[#801815] to-[#55100b] hover:from-[#921e1a] hover:to-[#6b130e] shadow-md transition duration-150 flex items-center justify-center space-x-2">
+                    <span>Donate ₹2,101</span>
+                    <span>→</span>
+                  </a>
+                </div>
+
               </div>
             </div>
 
-            <!-- Card 4: ₹3,101 - Gud Sawamani Sewa -->
+            <!-- Card 4: ₹3,101 - Gud Sawamani Sewa (Matching img1 design) -->
             <div class="swiper-slide h-auto">
-              <div class="cream-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
-                <div>
-                  <div class="flex items-center justify-between text-xs text-stone-600 font-semibold mb-4">
-                    <span class="text-amber-900 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full font-bold">
-                      Special Feast
-                    </span>
-                    <span class="text-stone-600"><i class="fa-solid fa-bowl-food text-amber-600 mr-1"></i> All 600+ Cows</span>
-                  </div>
+              <div class="donor-card p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffdfa]">
+                <div class="space-y-4">
                   
-                  <div class="mb-4">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-stone-900">₹3,101</div>
-                    <h3 class="text-lg font-bold text-stone-900 mt-1">Gud Sawamani Sewa</h3>
-                    <p class="text-xs text-stone-600 font-medium mt-1">Ek Din Ki Gud Sawamani Sewa Sabhi Gau Mataon ke liye</p>
+                  <!-- Top Row: Badge + Divider + Target -->
+                  <div class="flex items-center justify-between text-xs font-semibold">
+                    <span class="bg-[#fef0dc] border border-[#f6d7b2] text-[#7a2e16] px-3.5 py-1 rounded-full flex items-center space-x-1.5">
+                      <i class="fa-solid fa-gift text-saffron-600 text-[11px]"></i>
+                      <span>Special Feast</span>
+                    </span>
+                    <span class="text-[#dfcfbc] font-light">|</span>
+                    <span class="text-[#7a2e16] flex items-center space-x-1.5 font-bold">
+                      <i class="fa-solid fa-cow text-[#a04018]"></i>
+                      <span>All 600+ Cows</span>
+                    </span>
                   </div>
 
-                  <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-5">
-                    Sponsors 50 kg of pure jaggery (Gud) distributed as a sweet feast to all 600+ cows in the sanctuary on special family occasions.
-                  </p>
+                  <!-- Price & Hand-Drawn Golden Underline -->
+                  <div class="space-y-1">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-[#3a0c08] font-sans tracking-tight">
+                      ₹3,101
+                    </div>
+                    <!-- Golden Brush Underline -->
+                    <svg class="w-28 h-2 text-[#d4993a]" viewBox="0 0 100 8" fill="none">
+                      <path d="M2 5C25 2 75 7 98 4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                  </div>
 
-                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-700 mb-6">
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                  <!-- Title & Subtitle -->
+                  <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#3a0c08] font-serif leading-tight">
+                      Gud Sawamani Sewa
+                    </h3>
+                    <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">
+                      Ek Din Ki Gud Sawamani Sewa Sabhi Gau Mataon ke liye.
+                    </p>
+                  </div>
+
+                  <!-- Middle Highlight Card Box -->
+                  <div class="bg-[#faefe3] border border-[#f0dec9] rounded-2xl p-4 flex items-center space-x-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-white/80 border border-[#ecd4be] flex items-center justify-center text-amber-700 flex-shrink-0 text-lg shadow-sm">
+                      <i class="fa-solid fa-bowl-food"></i>
+                    </div>
+                    <p class="text-xs text-stone-700 leading-relaxed font-medium">
+                      Sponsors 50 kg of pure jaggery (Gud) distributed as a sweet feast to all 600+ cows in the sanctuary on special family occasions.
+                    </p>
+                  </div>
+
+                  <!-- Bullet List with Red Circle Checks -->
+                  <ul class="space-y-3 text-xs sm:text-sm text-stone-700 pt-1">
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>50+ किग्रा शुद्ध गुड़ का सामूहिक महाभोग</span>
                     </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>Dedicate on birthdays or wedding anniversaries</span>
                     </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-saffron-600 mt-0.5"></i>
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>Special prayers performed in donor's name</span>
                     </li>
                   </ul>
+
                 </div>
 
-                <a href="https://rzp.io/rzp/3101support" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-white bg-saffron-600 hover:bg-saffron-700 transition duration-150 block shadow-sm">
-                  Donate ₹3,101
-                </a>
+                <!-- Shine Button -->
+                <div class="pt-6">
+                  <a href="https://rzp.io/rzp/3101support" target="_blank" rel="noopener noreferrer" class="shine-btn w-full py-3.5 rounded-2xl font-bold text-center text-base text-white bg-gradient-to-r from-[#801815] to-[#55100b] hover:from-[#921e1a] hover:to-[#6b130e] shadow-md transition duration-150 flex items-center justify-center space-x-2">
+                    <span>Donate ₹3,101</span>
+                    <span>→</span>
+                  </a>
+                </div>
+
               </div>
             </div>
 
-            <!-- Card 5: Custom / Gau Dattak Sewa (Adopt a Cow) -->
+            <!-- Card 5: Custom / Gau Dattak Sewa (Matching img1 design) -->
             <div class="swiper-slide h-auto">
-              <div class="cream-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full bg-gradient-to-b from-stone-900 to-stone-950 text-white border-stone-800">
-                <div>
-                  <div class="flex items-center justify-between text-xs text-stone-300 font-semibold mb-4">
-                    <span class="text-amber-300 bg-amber-400/20 border border-amber-400/30 px-3 py-1 rounded-full font-bold">
-                      Lifelong Patron
-                    </span>
-                    <span class="text-amber-200/80 font-medium"><i class="fa-solid fa-shield-heart text-amber-400 mr-1"></i> Quarterly / Yearly</span>
-                  </div>
+              <div class="donor-card p-6 sm:p-7 flex flex-col justify-between h-full bg-[#fffdfa]">
+                <div class="space-y-4">
                   
-                  <div class="mb-4">
-                    <div class="text-3xl sm:text-4xl font-extrabold text-amber-300">Custom</div>
-                    <h3 class="text-lg font-bold text-white mt-1">Gau Dattak Sewa</h3>
-                    <p class="text-xs text-stone-300 font-medium mt-1">Ek Gau Mata ko Adopt karein quarterly ya yearly</p>
+                  <!-- Top Row: Badge + Divider + Target -->
+                  <div class="flex items-center justify-between text-xs font-semibold">
+                    <span class="bg-[#fef0dc] border border-[#f6d7b2] text-[#7a2e16] px-3.5 py-1 rounded-full flex items-center space-x-1.5">
+                      <i class="fa-solid fa-crown text-amber-600 text-[11px]"></i>
+                      <span>Lifelong Patron</span>
+                    </span>
+                    <span class="text-[#dfcfbc] font-light">|</span>
+                    <span class="text-[#7a2e16] flex items-center space-x-1.5 font-bold">
+                      <i class="fa-solid fa-shield-heart text-[#a04018]"></i>
+                      <span>Quarterly / Yearly</span>
+                    </span>
                   </div>
 
-                  <p class="text-xs sm:text-sm text-stone-300 leading-relaxed mb-5">
-                    Become the primary guardian for a rescued cow, covering complete fodder, veterinary treatments, and shelter for months or a full year.
-                  </p>
+                  <!-- Price & Hand-Drawn Golden Underline -->
+                  <div class="space-y-1">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-[#3a0c08] font-sans tracking-tight">
+                      Custom
+                    </div>
+                    <!-- Golden Brush Underline -->
+                    <svg class="w-32 h-2 text-[#d4993a]" viewBox="0 0 100 8" fill="none">
+                      <path d="M2 5C25 2 75 7 98 4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                  </div>
 
-                  <ul class="space-y-2.5 text-xs sm:text-sm text-stone-200 mb-6">
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
+                  <!-- Title & Subtitle -->
+                  <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#3a0c08] font-serif leading-tight">
+                      Gau Dattak Sewa
+                    </h3>
+                    <p class="text-xs sm:text-sm text-stone-600 font-medium mt-1">
+                      Ek Gau Mata ko Adopt karein quarterly ya yearly.
+                    </p>
+                  </div>
+
+                  <!-- Middle Highlight Card Box -->
+                  <div class="bg-[#faefe3] border border-[#f0dec9] rounded-2xl p-4 flex items-center space-x-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-white/80 border border-[#ecd4be] flex items-center justify-center text-amber-700 flex-shrink-0 text-lg shadow-sm">
+                      <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <p class="text-xs text-stone-700 leading-relaxed font-medium">
+                      Become the primary guardian for a rescued cow, covering complete fodder, veterinary treatments, and shelter.
+                    </p>
+                  </div>
+
+                  <!-- Bullet List with Red Circle Checks -->
+                  <ul class="space-y-3 text-xs sm:text-sm text-stone-700 pt-1">
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>गोद ली गई गौ माता का चित्र एवं संपूर्ण विवरण</span>
                     </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>Receive regular photos and health updates</span>
                     </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
+                    <li class="flex items-start space-x-2.5">
+                      <span class="w-5 h-5 rounded-full bg-[#8b1e15] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span>Open invitation to visit Gaushala anytime</span>
                     </li>
                   </ul>
+
                 </div>
 
-                <a href="https://rzp.io/rzp/adopt3months" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl font-bold text-center text-sm text-stone-950 bg-amber-300 hover:bg-amber-400 transition duration-150 block shadow-sm">
-                  Adopt a Cow
-                </a>
+                <!-- Shine Button -->
+                <div class="pt-6">
+                  <a href="https://rzp.io/rzp/adopt3months" target="_blank" rel="noopener noreferrer" class="shine-btn w-full py-3.5 rounded-2xl font-bold text-center text-base text-white bg-gradient-to-r from-[#801815] to-[#55100b] hover:from-[#921e1a] hover:to-[#6b130e] shadow-md transition duration-150 flex items-center justify-center space-x-2">
+                    <span>Adopt a Cow</span>
+                    <span>→</span>
+                  </a>
+                </div>
+
               </div>
             </div>
 
@@ -746,7 +940,9 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 7. OUR SEVA. THEIR WELL-BEING. (Authentic Photo-Backed Service Slider)     -->
+  <!-- 7. OUR SEVA. THEIR WELL-BEING. (Authentic Photos Matching Each Pillar!)   -->
+  <!-- Pillar 1: Fodder feeding | Pillar 2: Doctor checkup | Pillar 3: Sheds     -->
+  <!-- Pillar 4: Rescued calves | Pillar 5: Loving daily care                    -->
   <!-- ========================================================================= -->
   <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#f5ede2] border-t border-[#e2d2bf]">
     <div class="max-w-7xl mx-auto">
@@ -767,27 +963,27 @@
 
         <!-- Custom Left / Right Slider Navigation Buttons -->
         <div class="flex items-center space-x-3">
-          <button id="pillarsPrev" aria-label="Previous Slide" class="w-11 h-11 rounded-full border border-[#dfcfbc] bg-[#fffdf9] hover:bg-saffron-600 hover:text-white hover:border-saffron-600 text-stone-700 flex items-center justify-center transition shadow-sm">
+          <button id="pillarsPrev" aria-label="Previous Slide" class="w-11 h-11 rounded-full border border-[#dfcfbc] bg-[#fffdf9] hover:bg-vedic-red hover:text-white hover:border-vedic-red text-stone-700 flex items-center justify-center transition shadow-sm">
             <i class="fa-solid fa-arrow-left text-sm"></i>
           </button>
-          <button id="pillarsNext" aria-label="Next Slide" class="w-11 h-11 rounded-full border border-[#dfcfbc] bg-[#fffdf9] hover:bg-saffron-600 hover:text-white hover:border-saffron-600 text-stone-700 flex items-center justify-center transition shadow-sm">
+          <button id="pillarsNext" aria-label="Next Slide" class="w-11 h-11 rounded-full border border-[#dfcfbc] bg-[#fffdf9] hover:bg-vedic-red hover:text-white hover:border-vedic-red text-stone-700 flex items-center justify-center transition shadow-sm">
             <i class="fa-solid fa-arrow-right text-sm"></i>
           </button>
         </div>
       </div>
 
-      <!-- Horizontal Slider Carousel for 5 Pillars (With Upright Images) -->
+      <!-- Horizontal Slider Carousel for 5 Pillars (Exact Image for Each Purpose!) -->
       <div class="swiper pillarsSwiper pb-8">
         <div class="swiper-wrapper items-stretch">
           
-          <!-- Pillar 1: Nourishment & Daily Feeding -->
+          <!-- Pillar 1: Nourishment & Daily Feeding (Exact green fodder feeding photo!) -->
           <div class="swiper-slide h-auto">
-            <div class="cream-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
+            <div class="rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5] shadow-sm">
               <div>
                 <div class="h-48 overflow-hidden relative bg-stone-100">
-                  <img src="assets/gallery/IMG-20240915-WA0121.jpg.jpeg" alt="Nourishment & Daily Feeding" class="w-full h-full object-cover object-top hover:scale-105 transition duration-300" />
-                  <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
-                    01
+                  <img src="assets/gallery/FB_IMG_1742362452649.jpg.jpeg" alt="Cows eating green fodder" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <span class="absolute top-3 left-3 bg-[#8b1e15] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
+                    01 • Feeding
                   </span>
                 </div>
                 <div class="p-6 space-y-2">
@@ -799,21 +995,21 @@
                   </p>
                 </div>
               </div>
-              <div class="px-6 pb-6 pt-2 border-t border-[#f0e4d4] flex items-center justify-between text-xs font-bold text-saffron-700">
+              <div class="px-6 pb-6 pt-2 border-t border-[#f0e4d4] flex items-center justify-between text-xs font-bold text-vedic-red">
                 <span>Daily fresh green nutrition</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Pillar 2: Medical Care & Treatment -->
+          <!-- Pillar 2: Medical Care & Treatment (Veterinary doctor checkup photo!) -->
           <div class="swiper-slide h-auto">
-            <div class="cream-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
+            <div class="rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5] shadow-sm">
               <div>
                 <div class="h-48 overflow-hidden relative bg-stone-100">
-                  <img src="assets/gallery/IMG-20240915-WA0115.jpg.jpeg" alt="Medical Care & Treatment" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
-                  <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
-                    02
+                  <img src="assets/gallery/IMG-20240915-WA0115.jpg.jpeg" alt="Veterinary checkup and medical care" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <span class="absolute top-3 left-3 bg-[#8b1e15] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
+                    02 • Medical
                   </span>
                 </div>
                 <div class="p-6 space-y-2">
@@ -832,14 +1028,14 @@
             </div>
           </div>
 
-          <!-- Pillar 3: Shelter & Protection -->
+          <!-- Pillar 3: Shelter & Protection (Clean sheltered sheds photo!) -->
           <div class="swiper-slide h-auto">
-            <div class="cream-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
+            <div class="rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5] shadow-sm">
               <div>
                 <div class="h-48 overflow-hidden relative bg-stone-100">
-                  <img src="assets/gallery/IMG-20240915-WA0125.jpg.jpeg" alt="Shelter & Protection" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
-                  <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
-                    03
+                  <img src="assets/gallery/IMG-20240915-WA0125.jpg.jpeg" alt="Spacious Gaushala sheds" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <span class="absolute top-3 left-3 bg-[#8b1e15] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
+                    03 • Shelter
                   </span>
                 </div>
                 <div class="p-6 space-y-2">
@@ -858,14 +1054,14 @@
             </div>
           </div>
 
-          <!-- Pillar 4: Rescue & Rehabilitation -->
+          <!-- Pillar 4: Rescue & Rehabilitation (Rescued calves photo!) -->
           <div class="swiper-slide h-auto">
-            <div class="cream-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
+            <div class="rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5] shadow-sm">
               <div>
                 <div class="h-48 overflow-hidden relative bg-stone-100">
-                  <img src="assets/gallery/FB_IMG_1742362471831.jpg.jpeg" alt="Rescue & Rehabilitation" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
-                  <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
-                    04
+                  <img src="assets/gallery/FB_IMG_1742362471831.jpg.jpeg" alt="Rescued calves nursing" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <span class="absolute top-3 left-3 bg-[#8b1e15] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
+                    04 • Rescue
                   </span>
                 </div>
                 <div class="p-6 space-y-2">
@@ -877,21 +1073,21 @@
                   </p>
                 </div>
               </div>
-              <div class="px-6 pb-6 pt-2 border-t border-[#f0e4d4] flex items-center justify-between text-xs font-bold text-amber-700">
+              <div class="px-6 pb-6 pt-2 border-t border-[#f0e4d4] flex items-center justify-between text-xs font-bold text-amber-800">
                 <span>Emergency rescue response</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Pillar 5: Daily Gau Seva -->
+          <!-- Pillar 5: Daily Gau Seva (Loving daily care & darshan photo!) -->
           <div class="swiper-slide h-auto">
-            <div class="cream-card rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5]">
+            <div class="rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5] shadow-sm">
               <div>
                 <div class="h-48 overflow-hidden relative bg-stone-100">
-                  <img src="assets/gallery/IMG-20240915-WA0126.jpg.jpeg" alt="Daily Gau Seva" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
-                  <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
-                    05
+                  <img src="assets/gallery/IMG-20240915-WA0126.jpg.jpeg" alt="Loving daily care of cows" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <span class="absolute top-3 left-3 bg-[#8b1e15] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
+                    05 • Seva
                   </span>
                 </div>
                 <div class="p-6 space-y-2">
@@ -903,7 +1099,7 @@
                   </p>
                 </div>
               </div>
-              <div class="px-6 pb-6 pt-2 border-t border-[#f0e4d4] flex items-center justify-between text-xs font-bold text-saffron-700">
+              <div class="px-6 pb-6 pt-2 border-t border-[#f0e4d4] flex items-center justify-between text-xs font-bold text-vedic-red">
                 <span>Continuous selfless dedication</span>
                 <i class="fa-solid fa-arrow-right"></i>
               </div>
@@ -939,7 +1135,7 @@
       <div class="space-y-6">
         
         <!-- Dignitary 1: Jagadguru Malookpeethadhishwar Pujya Shri Rajendra Das ji Maharaj -->
-        <div class="cream-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5]">
+        <div class="rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5] shadow-sm">
           <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-[#dfcfbc] flex-shrink-0 shadow-sm">
             <img src="assets/affiliations/rajendra-das-ji.jpeg" alt="Jagadguru Malookpeethadhishwar Pujya Shri Rajendra Das ji Maharaj" class="w-full h-full object-cover object-top" />
           </div>
@@ -961,7 +1157,7 @@
         </div>
 
         <!-- Dignitary 2: Pujya Govind Dev Giri Ji Maharaj -->
-        <div class="cream-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5]">
+        <div class="rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5] shadow-sm">
           <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-[#dfcfbc] flex-shrink-0 shadow-sm">
             <img src="assets/affiliations/govind-dev-giri-ji.jpeg" alt="Pujya Govind Dev Giri Ji Maharaj" class="w-full h-full object-cover object-top" />
           </div>
@@ -983,7 +1179,7 @@
         </div>
 
         <!-- Dignitary 3: Shri Vishnu Deo Sai Ji -->
-        <div class="cream-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5]">
+        <div class="rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5] shadow-sm">
           <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-[#dfcfbc] flex-shrink-0 shadow-sm">
             <img src="assets/affiliations/vishnu-deo-sai.jpeg" alt="Shri Vishnu Deo Sai Ji" class="w-full h-full object-cover object-top" />
           </div>
@@ -1005,7 +1201,7 @@
         </div>
 
         <!-- Dignitary 4: Shri Manoj Tiwari Ji -->
-        <div class="cream-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5]">
+        <div class="rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-7 bg-[#fffdfa] border border-[#e5d7c5] shadow-sm">
           <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-xl overflow-hidden border border-[#dfcfbc] flex-shrink-0 shadow-sm">
             <img src="assets/affiliations/manoj-tiwari.jpeg" alt="Shri Manoj Tiwari Ji" class="w-full h-full object-cover object-top" />
           </div>
@@ -1031,50 +1227,108 @@
     </div>
   </section>
 
-  <!-- ======================================================== -->
-  <!-- 9. PHOTO GALLERY (Warm Cream Background)                 -->
-  <!-- ======================================================== -->
+  <!-- ========================================================================= -->
+  <!-- 9. PHOTO GALLERY (ALL 20 REAL IMAGES FROM GALLERY SECTION AS REQUESTED!)  -->
+  <!-- ========================================================================= -->
   <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#f5ede2] border-t border-[#e2d2bf]">
     <div class="max-w-7xl mx-auto">
       
       <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
         <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-[#fde9cb] px-3.5 py-1 rounded-full border border-[#f5d29d]">
-          Sanctuary Glimpses
+          Sanctuary Glimpses • 20 Real Goshala Photos
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
           Life at Samarpan Gaushala
         </h2>
         <p class="text-stone-700 text-sm sm:text-base">
-          Real moments of nourishment, medical rehabilitation, and joyful care in Govardhan, Mathura.
+          Glimpses of daily nourishment, medical care, calves, clean sheds, and joyful gau seva in Govardhan, Mathura.
         </p>
       </div>
 
-      <!-- Real Photos Grid (With Upright Images) -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
-          <img src="assets/gallery/IMG-20240915-WA0121.jpg.jpeg" alt="Fodder Feeding at Gaushala" class="w-full h-full object-cover object-top hover:scale-105 transition duration-300" loading="lazy" />
+      <!-- Responsive Grid with All 20 Real Photos -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+        
+        <!-- Image 1 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/FB_IMG_1742362382336.jpg.jpeg" alt="Gau Mata Care 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
-          <img src="assets/gallery/IMG-20240915-WA0125.jpg.jpeg" alt="Cows in Clean Shed" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Image 2 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/FB_IMG_1742362452649.jpg.jpeg" alt="Gau Mata Care 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
-          <img src="assets/gallery/IMG-20240915-WA0126.jpg.jpeg" alt="Affectionate Care" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Image 3 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/FB_IMG_1742362471831.jpg.jpeg" alt="Gau Mata Care 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
-          <img src="assets/gallery/FB_IMG_1742362382336.jpg.jpeg" alt="Healthy Grazing" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Image 4 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/FB_IMG_1742362483235.jpg.jpeg" alt="Gau Mata Care 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
-          <img src="assets/gallery/FB_IMG_1742362452649.jpg.jpeg" alt="Bulk Fodder Supply" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Image 5 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/FB_IMG_1742362492046.jpg.jpeg" alt="Gau Mata Care 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
-          <img src="assets/gallery/FB_IMG_1742362471831.jpg.jpeg" alt="Calf Nurturing" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Image 6 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/FB_IMG_1742362552453.jpg.jpeg" alt="Gau Mata Care 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
-          <img src="assets/gallery/IMG-20240915-WA0115.jpg.jpeg" alt="Veterinary Checkup" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Image 7 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/FB_IMG_1742362555369.jpg.jpeg" alt="Gau Mata Care 7" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
         </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm">
-          <img src="assets/gallery/IMG-20240915-WA0119.jpg.jpeg" alt="Peaceful Sanctuary Environment" class="w-full h-full object-cover hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Image 8 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG-20240915-WA0115.jpg.jpeg" alt="Gau Mata Care 8" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
         </div>
+        <!-- Image 9 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG-20240915-WA0119.jpg.jpeg" alt="Gau Mata Care 9" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+        <!-- Image 10 (Upright!) -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG-20240915-WA0121.jpg.jpeg" alt="Thakur Ji with Calf" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+        <!-- Image 11 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG-20240915-WA0125.jpg.jpeg" alt="Gau Mata Care 11" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+        <!-- Image 12 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG-20240915-WA0126.jpg.jpeg" alt="Gau Mata Care 12" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+        <!-- Image 13 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG20210523164957.jpg.jpeg" alt="Gau Mata Care 13" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+        <!-- Image 14 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG20210523165019.jpg.jpeg" alt="Gau Mata Care 14" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+        <!-- Image 15 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG20220905081248.jpg.jpeg" alt="Gau Mata Care 15" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+        <!-- Image 16 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG20240208175909.jpg.jpeg" alt="Gau Mata Care 16" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+        <!-- Image 17 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG20240223184425.jpg.jpeg" alt="Gau Mata Care 17" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+        <!-- Image 18 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG_0394.JPG.jpeg" alt="Gau Mata Care 18" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+        <!-- Image 19 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG_0396.JPG.jpeg" alt="Gau Mata Care 19" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+        <!-- Image 20 -->
+        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
+          <img src="assets/gallery/IMG_0398.JPG.jpeg" alt="Gau Mata Care 20" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        </div>
+
       </div>
 
     </div>
@@ -1182,7 +1436,7 @@
       <p class="text-xs text-white font-bold">Support Gau Mata</p>
       <p class="text-[10px] text-amber-300 font-medium">Starting from ₹501 • 80G Tax Exempt</p>
     </div>
-    <a href="#donate-packages" class="px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-saffron-600 shadow-md">
+    <a href="#donate-packages" class="shine-btn px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-gradient-to-r from-vedic-red to-vedic-deepRed shadow-md">
       Donate Now
     </a>
   </div>
