@@ -278,7 +278,7 @@
   <section id="hero" class="relative min-h-[85vh] sm:min-h-[88vh] flex items-center text-white overflow-hidden bg-stone-900">
     <!-- Hero Background Image (Natural Brightness, Not Blacked Out!) -->
     <div class="absolute inset-0 z-0">
-      <img src="assets/hero-bg.jpeg" alt="Pujya Shri Sanjiv Krishna Thakur Ji with Gau Mata" class="w-full h-full object-cover object-[center_right] sm:object-center filter brightness-[1.0] contrast-[1.02]" />
+      <img src="assets/hero-bg-wide.jpg" alt="Pujya Shri Sanjiv Krishna Thakur Ji with Gau Mata" class="w-full h-full object-cover object-[72%_center] sm:object-[80%_center] lg:object-right filter brightness-[1.02] contrast-[1.02]" />
       <!-- Asymmetrical Overlay: Dark on left for text legibility, CLEAR on right so Thakur Ji and the calf shine! -->
       <div class="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/60 to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-stone-950/30"></div>
@@ -981,7 +981,7 @@
             <div class="rounded-2xl overflow-hidden flex flex-col justify-between h-full bg-[#fffdfa] border border-[#e5d7c5] shadow-sm">
               <div>
                 <div class="h-48 overflow-hidden relative bg-stone-100">
-                  <img src="assets/gallery/FB_IMG_1742362452649.jpg.jpeg" alt="Cows eating green fodder" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <img src="assets/pillar-feeding.jpg" alt="Pujya Thakur Ji feeding holy cows" class="w-full h-full object-cover hover:scale-105 transition duration-300" />
                   <span class="absolute top-3 left-3 bg-[#8b1e15] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
                     01 • Feeding
                   </span>
@@ -1230,109 +1230,366 @@
   <!-- ========================================================================= -->
   <!-- 9. PHOTO GALLERY (ALL 20 REAL IMAGES FROM GALLERY SECTION AS REQUESTED!)  -->
   <!-- ========================================================================= -->
-  <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#f5ede2] border-t border-[#e2d2bf]">
+    <!-- ========================================================================= -->
+  <!-- DYNAMIC GALLERY SECTION: 20 Real Photos with Filter Tabs & Lightbox Modal  -->
+  <!-- ========================================================================= -->
+  <section id="gallery" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#f5ede2] border-t border-[#e2d2bf]">
     <div class="max-w-7xl mx-auto">
       
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
-        <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-[#fde9cb] px-3.5 py-1 rounded-full border border-[#f5d29d]">
-          Sanctuary Glimpses • 20 Real Goshala Photos
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-saffron-800 bg-[#fde9cb] px-3.5 py-1 rounded-full border border-[#f5d29d] inline-flex items-center space-x-1.5">
+          <i class="fa-solid fa-camera text-amber-700"></i>
+          <span>Interactive Gallery • 20 Real Goshala Moments</span>
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
           Life at Samarpan Gaushala
         </h2>
-        <p class="text-stone-700 text-sm sm:text-base">
-          Glimpses of daily nourishment, medical care, calves, clean sheds, and joyful gau seva in Govardhan, Mathura.
+        <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
+          Explore real glimpses of daily nourishment, medical care, calves, clean shelters, and Pujya Thakur Ji's loving gau seva in Govardhan, Mathura.
         </p>
+
+        <!-- Dynamic Category Filter Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-2 pt-4" id="galleryFilters">
+          <button type="button" data-filter="all" class="gallery-filter-btn active-filter px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition duration-200 bg-vedic-red text-white shadow-md">
+            All Moments (20)
+          </button>
+          <button type="button" data-filter="thakurji" class="gallery-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition duration-200 bg-white/80 hover:bg-[#fffdf9] text-stone-800 border border-[#dfcfbc] hover:border-vedic-red shadow-sm">
+            Pujya Thakur Ji
+          </button>
+          <button type="button" data-filter="feeding" class="gallery-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition duration-200 bg-white/80 hover:bg-[#fffdf9] text-stone-800 border border-[#dfcfbc] hover:border-vedic-red shadow-sm">
+            Daily Feeding
+          </button>
+          <button type="button" data-filter="shelter" class="gallery-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition duration-200 bg-white/80 hover:bg-[#fffdf9] text-stone-800 border border-[#dfcfbc] hover:border-vedic-red shadow-sm">
+            Shelter & Protection
+          </button>
+          <button type="button" data-filter="calves" class="gallery-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition duration-200 bg-white/80 hover:bg-[#fffdf9] text-stone-800 border border-[#dfcfbc] hover:border-vedic-red shadow-sm">
+            Calves & Care
+          </button>
+          <button type="button" data-filter="medical" class="gallery-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition duration-200 bg-white/80 hover:bg-[#fffdf9] text-stone-800 border border-[#dfcfbc] hover:border-vedic-red shadow-sm">
+            Medical Care
+          </button>
+        </div>
       </div>
 
-      <!-- Responsive Grid with All 20 Real Photos -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
-        
-        <!-- Image 1 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/FB_IMG_1742362382336.jpg.jpeg" alt="Gau Mata Care 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+      <!-- Responsive Dynamic Grid with All 20 Real Photos -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4.5" id="galleryGrid">
+        <!-- Item 1 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="gau-mata" onclick="openLightbox(0)">
+          <img src="assets/gallery/FB_IMG_1742362382336.jpg.jpeg" alt="Holy Gau Mata in Sanctuary Sheds" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Holy Gau Mata in Sanctuary Sheds
+            </p>
+          </div>
         </div>
-        <!-- Image 2 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/FB_IMG_1742362452649.jpg.jpeg" alt="Gau Mata Care 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 2 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="feeding" onclick="openLightbox(1)">
+          <img src="assets/gallery/FB_IMG_1742362452649.jpg.jpeg" alt="Fresh Green Fodder Nourishment" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Fresh Green Fodder Nourishment
+            </p>
+          </div>
         </div>
-        <!-- Image 3 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/FB_IMG_1742362471831.jpg.jpeg" alt="Gau Mata Care 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 3 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="calves" onclick="openLightbox(2)">
+          <img src="assets/gallery/FB_IMG_1742362471831.jpg.jpeg" alt="Loving Care for Rescued Calves" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Loving Care for Rescued Calves
+            </p>
+          </div>
         </div>
-        <!-- Image 4 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/FB_IMG_1742362483235.jpg.jpeg" alt="Gau Mata Care 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 4 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="gau-mata" onclick="openLightbox(3)">
+          <img src="assets/gallery/FB_IMG_1742362483235.jpg.jpeg" alt="Sacred Nandi & Desi Gau Mata" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Sacred Nandi & Desi Gau Mata
+            </p>
+          </div>
         </div>
-        <!-- Image 5 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/FB_IMG_1742362492046.jpg.jpeg" alt="Gau Mata Care 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 5 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="shelter" onclick="openLightbox(4)">
+          <img src="assets/gallery/FB_IMG_1742362492046.jpg.jpeg" alt="Spacious Gaushala Sheds" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Spacious Gaushala Sheds
+            </p>
+          </div>
         </div>
-        <!-- Image 6 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/FB_IMG_1742362552453.jpg.jpeg" alt="Gau Mata Care 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 6 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="gau-mata" onclick="openLightbox(5)">
+          <img src="assets/gallery/FB_IMG_1742362552453.jpg.jpeg" alt="Affectionate Herd at Govardhan" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Affectionate Herd at Govardhan
+            </p>
+          </div>
         </div>
-        <!-- Image 7 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/FB_IMG_1742362555369.jpg.jpeg" alt="Gau Mata Care 7" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 7 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="feeding" onclick="openLightbox(6)">
+          <img src="assets/gallery/FB_IMG_1742362555369.jpg.jpeg" alt="Daily Morning Feeding Time" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Daily Morning Feeding Time
+            </p>
+          </div>
         </div>
-        <!-- Image 8 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG-20240915-WA0115.jpg.jpeg" alt="Gau Mata Care 8" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 8 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="medical" onclick="openLightbox(7)">
+          <img src="assets/gallery/IMG-20240915-WA0115.jpg.jpeg" alt="Veterinary Doctor Medical Checkup" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Veterinary Doctor Medical Checkup
+            </p>
+          </div>
         </div>
-        <!-- Image 9 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG-20240915-WA0119.jpg.jpeg" alt="Gau Mata Care 9" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 9 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="thakurji" onclick="openLightbox(8)">
+          <img src="assets/gallery/IMG-20240915-WA0119.jpg.jpeg" alt="Pujya Shri Sanjiv Krishna Thakur Ji with Gau Mata" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Pujya Shri Sanjiv Krishna Thakur Ji with Gau Mata
+            </p>
+          </div>
         </div>
-        <!-- Image 10 (Upright!) -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG-20240915-WA0121.jpg.jpeg" alt="Thakur Ji with Calf" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 10 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="thakurji" onclick="openLightbox(9)">
+          <img src="assets/gallery/IMG-20240915-WA0121.jpg.jpeg" alt="Loving Embrace of Gau Seva" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Loving Embrace of Gau Seva
+            </p>
+          </div>
         </div>
-        <!-- Image 11 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG-20240915-WA0125.jpg.jpeg" alt="Gau Mata Care 11" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 11 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="shelter" onclick="openLightbox(10)">
+          <img src="assets/gallery/IMG-20240915-WA0125.jpg.jpeg" alt="Safe Covered Enclosures" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Safe Covered Enclosures
+            </p>
+          </div>
         </div>
-        <!-- Image 12 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG-20240915-WA0126.jpg.jpeg" alt="Gau Mata Care 12" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 12 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="thakurji" onclick="openLightbox(11)">
+          <img src="assets/gallery/IMG-20240915-WA0126.jpg.jpeg" alt="Daily Gau Seva by Thakur Ji" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Daily Gau Seva by Thakur Ji
+            </p>
+          </div>
         </div>
-        <!-- Image 13 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG20210523164957.jpg.jpeg" alt="Gau Mata Care 13" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 13 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="shelter" onclick="openLightbox(12)">
+          <img src="assets/gallery/IMG20210523164957.jpg.jpeg" alt="Protected Gau Vansh Campus" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Protected Gau Vansh Campus
+            </p>
+          </div>
         </div>
-        <!-- Image 14 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG20210523165019.jpg.jpeg" alt="Gau Mata Care 14" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 14 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="shelter" onclick="openLightbox(13)">
+          <img src="assets/gallery/IMG20210523165019.jpg.jpeg" alt="Gaushala Entrance & Shrines" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Gaushala Entrance & Shrines
+            </p>
+          </div>
         </div>
-        <!-- Image 15 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG20220905081248.jpg.jpeg" alt="Gau Mata Care 15" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 15 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="feeding" onclick="openLightbox(14)">
+          <img src="assets/gallery/IMG20220905081248.jpg.jpeg" alt="Jaggery & Nutritious Diet Seva" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Jaggery & Nutritious Diet Seva
+            </p>
+          </div>
         </div>
-        <!-- Image 16 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG20240208175909.jpg.jpeg" alt="Gau Mata Care 16" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 16 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="calves" onclick="openLightbox(15)">
+          <img src="assets/gallery/IMG20240208175909.jpg.jpeg" alt="Playful Calves Resting in Sand" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Playful Calves Resting in Sand
+            </p>
+          </div>
         </div>
-        <!-- Image 17 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG20240223184425.jpg.jpeg" alt="Gau Mata Care 17" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 17 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="gau-mata" onclick="openLightbox(16)">
+          <img src="assets/gallery/IMG20240223184425.jpg.jpeg" alt="Devoted Evening Gau Aarti" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Devoted Evening Gau Aarti
+            </p>
+          </div>
         </div>
-        <!-- Image 18 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG_0394.JPG.jpeg" alt="Gau Mata Care 18" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 18 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="thakurji" onclick="openLightbox(17)">
+          <img src="assets/gallery/IMG_0394.JPG.jpeg" alt="Pujya Thakur Ji Blessing Devotees" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Pujya Thakur Ji Blessing Devotees
+            </p>
+          </div>
         </div>
-        <!-- Image 19 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG_0396.JPG.jpeg" alt="Gau Mata Care 19" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 19 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="gau-mata" onclick="openLightbox(18)">
+          <img src="assets/gallery/IMG_0396.JPG.jpeg" alt="Rescued Desi Cows in Herd" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Rescued Desi Cows in Herd
+            </p>
+          </div>
         </div>
-        <!-- Image 20 -->
-        <div class="rounded-xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group">
-          <img src="assets/gallery/IMG_0398.JPG.jpeg" alt="Gau Mata Care 20" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy" />
+        <!-- Item 20 -->
+        <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square bg-stone-200 border border-[#dfcfbc] shadow-sm group cursor-pointer" data-category="feeding" onclick="openLightbox(19)">
+          <img src="assets/gallery/IMG_0398.JPG.jpeg" alt="Continuous Green Fodder Distribution" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" loading="lazy" />
+          <!-- Dark Hover Overlay with Zoom Icon & Caption -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3.5 text-white">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300 flex items-center space-x-1 mb-1">
+              <i class="fa-solid fa-expand text-[9px]"></i>
+              <span>View Full Photo</span>
+            </span>
+            <p class="text-xs font-bold leading-tight drop-shadow line-clamp-2">
+              Continuous Green Fodder Distribution
+            </p>
+          </div>
         </div>
-
       </div>
 
     </div>
   </section>
+
+  <!-- Interactive Fullscreen Lightbox Modal -->
+  <div id="galleryLightbox" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden flex items-center justify-center p-4 select-none">
+    <!-- Close Button -->
+    <button onclick="closeLightbox()" aria-label="Close Lightbox" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 flex items-center justify-center transition duration-200 z-50 cursor-pointer">
+      <i class="fa-solid fa-xmark text-xl"></i>
+    </button>
+
+    <!-- Prev Button -->
+    <button onclick="prevLightboxImage()" aria-label="Previous Image" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 flex items-center justify-center transition duration-200 z-50 cursor-pointer">
+      <i class="fa-solid fa-chevron-left text-lg"></i>
+    </button>
+
+    <!-- Next Button -->
+    <button onclick="nextLightboxImage()" aria-label="Next Image" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 flex items-center justify-center transition duration-200 z-50 cursor-pointer">
+      <i class="fa-solid fa-chevron-right text-lg"></i>
+    </button>
+
+    <!-- Modal Content -->
+    <div class="max-w-4xl max-h-[85vh] flex flex-col items-center justify-center text-center p-2">
+      <div class="relative max-h-[72vh] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl border border-white/10">
+        <img id="lightboxImg" src="" alt="Full view" class="max-h-[70vh] max-w-full object-contain transition-transform duration-300" />
+      </div>
+      <!-- Caption & Counter -->
+      <div class="mt-4 space-y-1 text-white">
+        <div id="lightboxTitle" class="text-base sm:text-lg font-bold text-amber-300"></div>
+        <div id="lightboxDesc" class="text-xs sm:text-sm text-stone-300 max-w-lg mx-auto"></div>
+        <div id="lightboxCounter" class="text-xs text-stone-400 font-mono pt-1"></div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- ======================================================== -->
   <!-- 10. REFINED FOOTER (Instagram & Facebook Only, Clean)    -->
@@ -1534,5 +1791,82 @@
     }
   </script>
 
+<script>
+
+    // =========================================================================
+    // DYNAMIC GALLERY & LIGHTBOX LOGIC
+    // =========================================================================
+    const galleryItems = [{"src": "assets/gallery/FB_IMG_1742362382336.jpg.jpeg", "category": "gau-mata", "title": "Holy Gau Mata in Sanctuary Sheds", "desc": "Peaceful indigenous cows protected at Samarpan Gaushala."}, {"src": "assets/gallery/FB_IMG_1742362452649.jpg.jpeg", "category": "feeding", "title": "Fresh Green Fodder Nourishment", "desc": "Daily fresh nutritious fodder and green grass feeding."}, {"src": "assets/gallery/FB_IMG_1742362471831.jpg.jpeg", "category": "calves", "title": "Loving Care for Rescued Calves", "desc": "Special milk nursing and attentive shelter for newborn calves."}, {"src": "assets/gallery/FB_IMG_1742362483235.jpg.jpeg", "category": "gau-mata", "title": "Sacred Nandi & Desi Gau Mata", "desc": "Healthy and joyful sacred cows living in divine harmony."}, {"src": "assets/gallery/FB_IMG_1742362492046.jpg.jpeg", "category": "shelter", "title": "Spacious Gaushala Sheds", "desc": "Well-ventilated, weather-protected clean living environment."}, {"src": "assets/gallery/FB_IMG_1742362552453.jpg.jpeg", "category": "gau-mata", "title": "Affectionate Herd at Govardhan", "desc": "Over 600+ rescued cows receiving unconditional love."}, {"src": "assets/gallery/FB_IMG_1742362555369.jpg.jpeg", "category": "feeding", "title": "Daily Morning Feeding Time", "desc": "Fresh dry straw and nutritious mineral feed provided daily."}, {"src": "assets/gallery/IMG-20240915-WA0115.jpg.jpeg", "category": "medical", "title": "Veterinary Doctor Medical Checkup", "desc": "Regular health examinations and dedicated veterinary treatments."}, {"src": "assets/gallery/IMG-20240915-WA0119.jpg.jpeg", "category": "thakurji", "title": "Pujya Shri Sanjiv Krishna Thakur Ji with Gau Mata", "desc": "Spiritual guidance, unconditional love, and blessings for every cow."}, {"src": "assets/gallery/IMG-20240915-WA0121.jpg.jpeg", "category": "thakurji", "title": "Loving Embrace of Gau Seva", "desc": "Thakur Ji sharing sacred moments of compassion with a rescued calf."}, {"src": "assets/gallery/IMG-20240915-WA0125.jpg.jpeg", "category": "shelter", "title": "Safe Covered Enclosures", "desc": "Protection from extreme sun, rain, and winter cold."}, {"src": "assets/gallery/IMG-20240915-WA0126.jpg.jpeg", "category": "thakurji", "title": "Daily Gau Seva by Thakur Ji", "desc": "Hands-on devotion and care inspiring thousands of devotees."}, {"src": "assets/gallery/IMG20210523164957.jpg.jpeg", "category": "shelter", "title": "Protected Gau Vansh Campus", "desc": "Lush green surrounding grounds of Samarpan Gaushala, Govardhan."}, {"src": "assets/gallery/IMG20210523165019.jpg.jpeg", "category": "shelter", "title": "Gaushala Entrance & Shrines", "desc": "A pilgrimage destination dedicated to Gau Seva and Sanatan values."}, {"src": "assets/gallery/IMG20220905081248.jpg.jpeg", "category": "feeding", "title": "Jaggery & Nutritious Diet Seva", "desc": "Special sweet feasts and Sawamani feeding on auspicious occasions."}, {"src": "assets/gallery/IMG20240208175909.jpg.jpeg", "category": "calves", "title": "Playful Calves Resting in Sand", "desc": "Soft, clean bedding grounds for vulnerable young calves."}, {"src": "assets/gallery/IMG20240223184425.jpg.jpeg", "category": "gau-mata", "title": "Devoted Evening Gau Aarti", "desc": "Sacred traditions honoring Gau Mata as the abode of all deities."}, {"src": "assets/gallery/IMG_0394.JPG.jpeg", "category": "thakurji", "title": "Pujya Thakur Ji Blessing Devotees", "desc": "Spreading the sacred message of Gau Raksha across India."}, {"src": "assets/gallery/IMG_0396.JPG.jpeg", "category": "gau-mata", "title": "Rescued Desi Cows in Herd", "desc": "Giving life, dignity, and refuge to abandoned cows."}, {"src": "assets/gallery/IMG_0398.JPG.jpeg", "category": "feeding", "title": "Continuous Green Fodder Distribution", "desc": "Tons of nutritious green feed delivered every single day."}];
+    let currentLightboxIdx = 0;
+
+    function openLightbox(idx) {
+      currentLightboxIdx = idx;
+      updateLightboxContent();
+      const modal = document.getElementById('galleryLightbox');
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('galleryLightbox');
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function updateLightboxContent() {
+      const item = galleryItems[currentLightboxIdx];
+      document.getElementById('lightboxImg').src = item.src;
+      document.getElementById('lightboxTitle').textContent = item.title;
+      document.getElementById('lightboxDesc').textContent = item.desc;
+      document.getElementById('lightboxCounter').textContent = `Photo ${currentLightboxIdx + 1} of ${galleryItems.length}`;
+    }
+
+    function nextLightboxImage() {
+      currentLightboxIdx = (currentLightboxIdx + 1) % galleryItems.length;
+      updateLightboxContent();
+    }
+
+    function prevLightboxImage() {
+      currentLightboxIdx = (currentLightboxIdx - 1 + galleryItems.length) % galleryItems.length;
+      updateLightboxContent();
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('galleryLightbox');
+      if (!modal || modal.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextLightboxImage();
+      if (e.key === 'ArrowLeft') prevLightboxImage();
+    });
+
+    // Gallery Category Filtering
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+      const items = document.querySelectorAll('.gallery-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('active-filter', 'bg-vedic-red', 'text-white');
+            b.classList.add('bg-white/80', 'text-stone-800');
+          });
+          btn.classList.add('active-filter', 'bg-vedic-red', 'text-white');
+          btn.classList.remove('bg-white/80', 'text-stone-800');
+
+          const filter = btn.getAttribute('data-filter');
+          items.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.style.display = 'block';
+              item.classList.add('animate-fadeIn');
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+
+</script>
 </body>
 </html>
